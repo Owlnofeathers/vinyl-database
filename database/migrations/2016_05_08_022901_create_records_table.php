@@ -16,6 +16,7 @@ class CreateRecordsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('artist_id');
             $table->foreign('artist_id')->references('id')->on('artists');
+            $table->string('title');
             $table->json('contents');
             $table->timestamps();
         });
