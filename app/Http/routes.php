@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get( 'records', 'VinylController@show' );
+Route::get( 'records', 'VinylController@index' );
+Route::get( 'record/{id}', 'VinylController@show' );
+Route::get( 'record/{id}/edit', 'VinylController@edit' );
