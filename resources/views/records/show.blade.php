@@ -17,7 +17,8 @@
                 @endforeach
             </tr>
         </table>
-        <a href="/records" class="btn btn-default btn-lg" role="button">All Records</a>
+
+        <a href="/records" class="btn btn-primary btn-lg" role="button">All Records</a>
 
     </div>
 @endsection

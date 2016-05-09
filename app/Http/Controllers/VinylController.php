@@ -32,13 +32,24 @@ class VinylController extends Controller
         ));
     }
 
+    public function showEdit($id)
+    {
+        $record = Record::find($id)->first();
+        $contents = $record->contents;
+        return view('records.edit',
+            [
+                'contents' => json_decode($contents, true),
+                'record' => $record
+            ]);
+    }
+
     /*
      * Edits the changed values for keys in the JSON contents
      * and the title
      */
     public function edit($id, Request $request)
     {
-        $record = Record::find($id)->first;
+        $record = Record::find($id)->first();
         $contents = json_decode($record->contents, true);
 
         $contentsChanges = $request->input( 'contents' );
@@ -50,7 +61,5 @@ class VinylController extends Controller
         $record->contents = json_encode($contents);
         $record->save();
 
-        return redirect()->back();
-        
     }
 }
