@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Adam's Vinyl Collection</title>
 
     <!-- Bootstrap -->
     <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
@@ -20,7 +20,6 @@
 <body>
 
 @yield('content')
-
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

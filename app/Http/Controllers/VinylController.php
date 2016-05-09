@@ -24,9 +24,12 @@ class VinylController extends Controller
      */
     public function show($id)
     {
-        $record = Record::find($id)->first;
-
-        return view( 'records.show', compact('record', $record) );
+        $record = Record::find($id)->first();
+        $contents = json_decode( $record->contents );
+        return view( 'records.show', compact(
+            'record', $record,
+            'contents', $contents
+        ));
     }
 
     /*

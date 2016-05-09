@@ -13,7 +13,7 @@
             @foreach( $records as $record )
                 <tr>
                     <td>{{ $record->artist->name }}</td>
-                    <td>{{ $record->title }}</td>
+                    <td><a href="record/{{ $record->id }}" title="Edit {{ $record->title }}">{{ $record->title }}</a></td>
                 </tr>
             @endforeach
         </table>
