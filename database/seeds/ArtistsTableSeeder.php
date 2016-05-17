@@ -13,29 +13,17 @@ class ArtistsTableSeeder extends Seeder
     {
         DB::table('artists')->insert([
             'name' => 'ALL',
-            'contents' => '{
-                "members" : "4",
-                "hometown" : "Los Angeles",
-                "state" : "California"
-            }'
+            'description' => 'ALL is a melodic punk band formed by members of the Descendents after the departure of their lead singer Milo Aukerman in 1987.'
         ]);
 
         DB::table('artists')->insert([
             'name' => 'Hot Water Music',
-            'contents' => '{
-                "members" : "4",
-                "hometown" : "Gainsville",
-                "state" : "Florida"
-            }'
+            'description' => 'Melodic punk / hardcore band. Releasing material on No Idea Records and more recently with Epitaph Records. '
         ]);
 
         DB::table('artists')->insert([
             'name' => 'Green Day',
-            'contents' => '{
-                "members" : "3",
-                "hometown" : "Berkeley",
-                "state" : "California"
-            }'
+            'description' => 'Green Day is a pop punk/alternative rock band from East Bay, California that formed in 1987.'
         ]);
     }
 }
