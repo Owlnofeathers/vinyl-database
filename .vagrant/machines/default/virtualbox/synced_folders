@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/vinyl-database":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/vinyl-database","hostpath":"/home/developer/projects/vinyl-database","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/developer/projects/vinyl-database","disabled":false,"__vagrantfile":true}}}
