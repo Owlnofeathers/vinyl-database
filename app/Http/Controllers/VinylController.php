@@ -52,14 +52,32 @@ class VinylController extends Controller
         $record = Record::find($id)->first();
         $contents = json_decode($record->contents, true);
 
-        $contentsChanges = $request->input( 'contents' );
-        foreach($contentsChanges as $key => $value)
+        $data = $request->input();
+//        dd($data);
+        if($request->input( 'title' ) == '')
         {
-            $contents[$key] = $contentsChanges[$key];
+            \Log::debug('EMPTY');
+        } else {
+            \Log::debug('NOT EMPTY');
+            $record->title = $request->input( 'title' );
         }
-        $record->title = $request->input( 'title' );
+
+        foreach($contents as $key => $value)
+        {
+            if($data[$key] == '')
+            {
+                \Log::debug('EMPTY');
+            } else {
+                \Log::debug('NOT EMPTY');
+                $contents[$key] = $data[$key];
+            }
+        }
+
+
         $record->contents = json_encode($contents);
         $record->save();
+
+        redirect()->back();
 
     }
 }
