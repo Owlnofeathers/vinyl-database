@@ -20,12 +20,9 @@
                     </div>
                 </div>
             @endforeach
-    
+
             <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
-            <a href="/records" class="btn btn-primary btn-lg btn-block" role="button">All Records</a>
+            <a href="/record/{{ $record->id }}" class="btn btn-primary btn-lg btn-block" role="button">Cancel</a>
         </form>
-
-
-
     </div>
 @endsection
