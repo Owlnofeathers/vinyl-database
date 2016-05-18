@@ -2,25 +2,16 @@
 
 @section('content')
     <div class ="container">
-        <h1>{{ $record->artist->name }}</h1>
-        <h2 class=page-header">{{ $record->title }}
-            <a href="/record/{{ $record->id }}/edit" type="button" title="Edit {{ $record->title }}">
+        <h1 class=page-header">{{ $artist->name }}
+            <a href="#" type="button" title="Edit {{ $artist->name }}">
                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             </a>
-        </h2>
+        </h1>
+        
+        <div class="well">
+            <p class="lead">{{ $artist->description }}</p>
+        </div>
 
-        <table class="table table-striped">
-            <tr>
-                @foreach( $contents as $key => $value )
-                    <td><strong>{{ $key }}</strong></td>
-                @endforeach
-            </tr>
-            <tr>
-                @foreach( $contents as $key => $value )
-                    <td>{{ $value }}</td>
-                @endforeach
-            </tr>
-        </table>
         <a href="/records" class="btn btn-primary btn-lg" role="button">Back to all records</a>
 
     </div>
