@@ -13,15 +13,19 @@
             </div>
 
             @foreach($contents as $key => $value)
-                <div class="form-group">
-                    <label for="">{{ $key }}</label>
-                    <input type="text" name="{{ $key }}" class="form-control" placeholder="{{$value}}">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">{{ $key }}</label>
+                        <input type="text" name="{{ $key }}" class="form-control" placeholder="{{$value}}">
+                    </div>
                 </div>
             @endforeach
-            <button type="submit" class="btn btn-default">Submit</button><br>
+    
+            <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
+            <a href="/records" class="btn btn-primary btn-lg btn-block" role="button">All Records</a>
         </form>
 
-        <a href="/records" class="btn btn-primary btn-lg" role="button">All Records</a>
+
 
     </div>
 @endsection
