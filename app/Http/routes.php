@@ -24,3 +24,5 @@ Route::get( 'record/{id}/edit', [
     'uses' => 'VinylController@showEdit']);
 
 Route::put( 'record/{id}/edit', 'VinylController@edit' );
+
+Route::get( 'artist/{id}', 'ArtistController@show' );
