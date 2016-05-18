@@ -17,8 +17,8 @@
                 @endforeach
             </tr>
         </table>
-
-        <a href="/records" class="btn btn-primary btn-lg" role="button">All Records</a>
+        <a href="/record/{{ $record->id }}/edit" class="btn btn-primary btn-lg btn-block" role="button">Edit {{ $record->title }}</a>
+        <a href="/records" class="btn btn-primary btn-lg btn-block" role="button">All Records</a>
 
     </div>
 @endsection
