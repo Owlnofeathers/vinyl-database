@@ -7,7 +7,7 @@
                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             </a>
         </h1>
-        
+
         <div class="well">
             <p class="lead">{{ $artist->description }}</p>
         </div>
