@@ -10,7 +10,7 @@ class ArtistController extends Controller
 {
     public function show($id)
     {
-        $artist = Artist::find($id)->first();
+        $artist = Artist::where('id', $id)->first();
 
         return view( 'artists.show', compact( 'artist', $artist ));
     }
