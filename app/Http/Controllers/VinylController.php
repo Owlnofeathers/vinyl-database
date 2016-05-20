@@ -36,10 +36,44 @@ class VinylController extends Controller
     {
         $record = Record::where('id', $id)->first();
         $contents = $record->contents;
+        $decontents = json_decode($contents);
+
+        foreach($decontents as $field => $value)
+        {
+            if($field == 'catalog-number')
+            {
+                $catalog_number = $value;
+            } elseif($field == 'vinyl-color')
+            {
+                $vinyl_color = $value;
+            } elseif($field == 'pressing-info')
+            {
+                $pressing_info = $value;
+            } elseif($field == 'vinyl-size')
+            {
+                $vinyl_size = $value;
+            } elseif($field == 'genre')
+            {
+                $genre = $value;
+            } elseif($field == 'photo-link')
+            {
+                $photo_link = $value;
+            }else
+            {
+                $condition = $value;
+            }
+        }
+        
         return view('records.edit',
             [
                 'contents' => json_decode($contents, true),
-                'record' => $record
+                'record' => $record,
+                'catalog_number' => $catalog_number,
+                'pressing_info' => $pressing_info,
+                'vinyl_size' => $vinyl_size,
+                'genre' => $genre,
+                'photo_link' => $photo_link,
+                'condition' => $condition
             ]);
     }
 
