@@ -26,19 +26,9 @@ class VinylController extends Controller
     {
         $record = Record::where('id', $id)->first();
         $contents = json_decode( $record->contents );
-        return view( 'records.show', compact(
-            'record', $record,
-            'contents', $contents
-        ));
-    }
+//        $decontents = json_decode($contents);
 
-    public function showEdit($id)
-    {
-        $record = Record::where('id', $id)->first();
-        $contents = $record->contents;
-        $decontents = json_decode($contents);
-
-        foreach($decontents as $field => $value)
+        foreach($contents as $field => $value)
         {
             if($field == 'catalog-number')
             {
@@ -63,17 +53,28 @@ class VinylController extends Controller
                 $condition = $value;
             }
         }
-        
+        return view( 'records.show', [
+            'record' => $record,
+            'contents' => $contents,
+            'catalog_number' => $catalog_number,
+            'vinyl_color' => $vinyl_color,
+            'pressing_info' => $pressing_info,
+            'vinyl_size' => $vinyl_size,
+            'genre' => $genre,
+            'photo_link' => $photo_link,
+            'condition' => $condition
+        ]);
+    }
+
+    public function showEdit($id)
+    {
+        $record = Record::where('id', $id)->first();
+        $contents = $record->contents;
+
         return view('records.edit',
             [
                 'contents' => json_decode($contents, true),
-                'record' => $record,
-                'catalog_number' => $catalog_number,
-                'pressing_info' => $pressing_info,
-                'vinyl_size' => $vinyl_size,
-                'genre' => $genre,
-                'photo_link' => $photo_link,
-                'condition' => $condition
+                'record' => $record
             ]);
     }
 
