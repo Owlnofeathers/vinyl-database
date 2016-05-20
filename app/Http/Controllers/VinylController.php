@@ -24,7 +24,7 @@ class VinylController extends Controller
      */
     public function show($id)
     {
-        $record = Record::find($id)->first();
+        $record = Record::where('id', $id)->first();
         $contents = json_decode( $record->contents );
         return view( 'records.show', compact(
             'record', $record,
@@ -34,7 +34,7 @@ class VinylController extends Controller
 
     public function showEdit($id)
     {
-        $record = Record::find($id)->first();
+        $record = Record::where('id', $id)->first();
         $contents = $record->contents;
         return view('records.edit',
             [
@@ -49,7 +49,7 @@ class VinylController extends Controller
      */
     public function edit($id, Request $request)
     {
-        $record = Record::find($id)->first();
+        $record = Record::where('id', $id)->first();
         $contents = json_decode($record->contents, true);
 
         $data = $request->input();
@@ -73,8 +73,7 @@ class VinylController extends Controller
             }
         }
 
-
-        $record->contents = json_encode($contents);
+        $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
         redirect()->back();
