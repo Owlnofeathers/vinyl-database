@@ -14,7 +14,9 @@
 
             <div class="form-group">
                 <label for="">Description</label>
-                <input type="textarea" name ="description" class="form-control" placeholder="{{ $artist->description }}">
+                <textarea name ="description" class="form-control" rows="4" cols="">
+                    {{ $artist->description }}
+                </textarea>
             </div>
 
             <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
