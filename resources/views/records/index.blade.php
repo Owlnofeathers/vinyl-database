@@ -7,8 +7,7 @@
 
             @foreach( $records as $record )
                     <p class="lead">
-                        <a href="/artist/{{ $record->artist_id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a> -
-                        <a href="/record/{{ $record->id }}" title="View {{ $record->title }}">{{ $record->title }}</a>
+                        <a href="/record/{{ $record->id }}" title="View {{ $record->title }}"">{{ $record->artist->name }} - {{ $record->title }}</a>
                     </p>
             @endforeach
 
