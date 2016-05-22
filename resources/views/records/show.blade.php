@@ -24,6 +24,10 @@
                     @else
                         <p>This record is in absolutely amazing condition!</p>
                     @endif
+
+                    <div class="img-responsive text-center">
+                        <img src="{{ $faker->imageUrl(300, 300, 'cats') }}">
+                    </div>
                 </div>
             </div>
 

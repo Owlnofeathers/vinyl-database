@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Record;
+use Faker;
 
 class VinylController extends Controller
 {
@@ -24,9 +25,10 @@ class VinylController extends Controller
      */
     public function show($id)
     {
+        $faker = Faker\Factory::create();
+
         $record = Record::where('id', $id)->first();
         $contents = json_decode( $record->contents );
-//        $decontents = json_decode($contents);
 
         foreach($contents as $field => $value)
         {
@@ -62,7 +64,8 @@ class VinylController extends Controller
             'vinyl_size' => $vinyl_size,
             'genre' => $genre,
             'photo_link' => $photo_link,
-            'condition' => $condition
+            'condition' => $condition,
+            'faker' => $faker
         ]);
     }
 
