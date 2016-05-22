@@ -19,6 +19,16 @@
 </head>
 <body>
 
+@if (session('success'))
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        </div>
+    </div>
+@endif
+
 @yield('content')
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

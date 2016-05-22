@@ -111,7 +111,7 @@ class VinylController extends Controller
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
-        redirect()->back();
+        redirect()->back()->with('success', 'Record updated!');
 
     }
 }

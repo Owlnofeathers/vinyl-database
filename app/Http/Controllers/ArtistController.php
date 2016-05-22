@@ -31,6 +31,6 @@ class ArtistController extends Controller
 
         $artist->save();
 
-        redirect()->back();
+        redirect()->back()->with('success', 'Artist updated!');
     }
 }
