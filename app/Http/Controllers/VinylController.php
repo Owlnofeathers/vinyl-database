@@ -11,11 +11,24 @@ use Faker;
 class VinylController extends Controller
 {
     /*
-     * Returns all vinyl to the index view
+     * Returns vinyl to the index view
      */
     public function index()
     {
-        $records = Record::all();
+        $search = \Request::get('search');
+
+        if(isset($search))
+        {
+            $records = Record::where('title','like','%'.$search.'%')
+                ->orderBy('title')->get();
+
+            if(count($records) < 1)
+            {
+                redirect()->back()->with('success', 'No records matched your search.');
+            }
+        } else {
+            $records = Record::all();
+        }
 
         return view( 'records.index', compact('records', $records) );
     }
