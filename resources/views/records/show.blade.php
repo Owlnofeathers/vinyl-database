@@ -12,11 +12,19 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p>This copy of {{ $record->title }} is a {{ $vinyl_color }} {{ $vinyl_size }}" {{ $genre }} record, catalog number {{ $catalog_number }}.</p>
-                    <p>Some of the notable features of this record are:</p>
-                    <ul>
-                        <li>{{ $pressing_info }}.</li>
-                    </ul><br>
+                    <p>This copy of {{ $record->title }} is a {{ $vinyl_color }} {{ $vinyl_size }}" {{ $genre }} record,
+                        @if(!empty($catalog_number))
+                            catalog number {{ $catalog_number }}.
+                        @endif
+                    </p>
+
+                    @if(!empty($pressing_info))
+                        <p>Some of the notable features of this record are:</p>
+                        <ul>
+                            <li>{{ $pressing_info }}.</li>
+                        </ul><br>
+                    @endif
+
                     @if($condition <= 3)
                         <p>The record is in poor condition.</p>
                     @elseif($condition == 4)
