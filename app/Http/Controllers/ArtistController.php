@@ -27,7 +27,7 @@ class ArtistController extends Controller
         $artist = Artist::where('id', $id)->first();
 
         $artist->name = $request->input('name');
-        $artist->desription = $request->input('description');
+        $artist->description = $request->input('description');
 
         $artist->save();
 
