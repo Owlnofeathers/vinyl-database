@@ -14,4 +14,23 @@ class ArtistController extends Controller
 
         return view( 'artists.show', compact( 'artist', $artist ));
     }
+    
+    public function showEdit($id)
+    {
+        $artist = Artist::where('id', $id)->first();
+
+        return view( 'artists.edit', compact( 'artist', $artist ));
+    }
+
+    public function edit($id, Request $request)
+    {
+        $artist = Artist::where('id', $id)->first();
+
+        $artist->name = $request->input('name');
+        $artist->desription = $request->input('description');
+
+        $artist->save();
+
+        redirect()->back();
+    }
 }
