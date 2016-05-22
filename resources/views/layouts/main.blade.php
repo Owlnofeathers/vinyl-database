@@ -19,7 +19,7 @@
 </head>
 <body>
 
-@include('partials.status');
+@include('partials.status')
 
 @yield('content')
 

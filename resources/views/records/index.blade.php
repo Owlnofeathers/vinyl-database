@@ -1,5 +1,12 @@
 @extends('layouts.main')
 
+@section('scripts')
+    <script>
+        $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+    </script>
+@endsection
+
+
 @section('content')
 
     <div class="container">
@@ -9,7 +16,7 @@
 
             @foreach( $records as $record )
                     <p class="lead">
-                        <a href="/record/{{ $record->id }}" title="View {{ $record->title }}"">{{ $record->artist->name }} - {{ $record->title }}</a>
+                        <a href="/record/{{ $record->id }}" title="View {{ $record->title }}">{{ $record->artist->name }} - {{ $record->title }}</a>
                     </p>
             @endforeach
 
