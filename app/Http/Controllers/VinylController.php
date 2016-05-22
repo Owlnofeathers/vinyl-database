@@ -24,7 +24,7 @@ class VinylController extends Controller
 
             if(count($records) < 1)
             {
-                redirect()->back()->with('success', 'No records matched your search.');
+                redirect()->back()->with('danger', 'No records matched your search.');
             }
         } else {
             $records = Record::all();

@@ -19,15 +19,7 @@
 </head>
 <body>
 
-@if (session('success'))
-    <div class="container">
-        <div class="row">
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        </div>
-    </div>
-@endif
+@include('partials.status');
 
 @yield('content')
 
@@ -35,5 +27,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+@yield('scripts')
+
 </body>
 </html>
