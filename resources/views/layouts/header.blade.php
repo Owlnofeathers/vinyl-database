@@ -8,7 +8,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Vinyl Database</a>
+            @if(\Request::is('/'))
+                <a class="navbar-brand page-scroll" href="#page-top">Vinyl Database</a>
+            @else
+                <a class="navbar-brand page-scroll" href="/">Vinyl Database</a>
+            @endif
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,17 +20,23 @@
             <ul class="nav navbar-nav">
                 <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                 <li class="hidden">
-                    <a class="page-scroll" href="/#page-top"></a>
+                    <a class="page-scroll" href="#page-top"></a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="/#about">About</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/#services">Records</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/#contact">Contact</a>
-                </li>
+                @if(\Request::is('/'))
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Records</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                @else
+                    <li>
+                        <a class="page-scroll" href="/records">Records</a>
+                    </li>
+                @endif
             </ul>
         </div>
         <!-- /.navbar-collapse -->
