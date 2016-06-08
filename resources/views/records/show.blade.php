@@ -12,22 +12,22 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p>This copy of {{ $record->title }} is a {{ $vinyl_color }} {{ $vinyl_size }}" {{ $genre }} record,
-                        @if(!empty($catalog_number))
-                            catalog number {{ $catalog_number }}.
+                    <p>This copy of {{ $record->title }} is a {{ $contents['vinyl-color'] }} {{ $contents['vinyl-size'] }}" {{ $contents['genre'] }} record,
+                        @if(!empty($contents['catalog-number']))
+                            catalog number {{ $contents['catalog-number'] }}.
                         @endif
                     </p>
 
-                    @if(!empty($pressing_info))
+                    @if(!empty($contents['pressing-info'] ))
                         <p>Some of the notable features of this record are:</p>
                         <ul>
-                            <li>{{ $pressing_info }}.</li>
+                            <li>{{ $contents['pressing-info'] }}.</li>
                         </ul><br>
                     @endif
 
-                    @if($condition <= 3)
+                    @if($contents['condition'] <= 3)
                         <p>The record is in poor condition.</p>
-                    @elseif($condition == 4)
+                    @elseif($contents['condition'] == 4)
                         <p>The record is in great shape.</p>
                     @else
                         <p>This record is in absolutely amazing condition!</p>
