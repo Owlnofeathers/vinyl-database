@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <a href="/records" class="btn btn-primary btn-lg" role="button">Back to all records</a>
+            <a href="/record" class="btn btn-primary btn-lg" role="button">Back to all records</a>
         </div>
 
     </div>
