@@ -39,45 +39,13 @@ class VinylController extends Controller
     public function show($id)
     {
         $faker = Faker\Factory::create();
+        
+        $record = Record::find($id);
+        $contents = json_decode($record->contents, true);
 
-        $record = Record::where('id', $id)->first();
-        $contents = json_decode( $record->contents );
-
-        foreach($contents as $field => $value)
-        {
-            if($field == 'catalog-number')
-            {
-                $catalog_number = $value;
-            } elseif($field == 'vinyl-color')
-            {
-                $vinyl_color = $value;
-            } elseif($field == 'pressing-info')
-            {
-                $pressing_info = $value;
-            } elseif($field == 'vinyl-size')
-            {
-                $vinyl_size = $value;
-            } elseif($field == 'genre')
-            {
-                $genre = $value;
-            } elseif($field == 'photo-link')
-            {
-                $photo_link = $value;
-            }else
-            {
-                $condition = $value;
-            }
-        }
         return view( 'records.show', [
             'record' => $record,
             'contents' => $contents,
-            'catalog_number' => $catalog_number,
-            'vinyl_color' => $vinyl_color,
-            'pressing_info' => $pressing_info,
-            'vinyl_size' => $vinyl_size,
-            'genre' => $genre,
-            'photo_link' => $photo_link,
-            'condition' => $condition,
             'faker' => $faker
         ]);
     }
@@ -98,36 +66,19 @@ class VinylController extends Controller
      * Edits the changed values for keys in the JSON contents
      * and the title
      */
+
     public function edit($id, Request $request)
     {
-        $record = Record::where('id', $id)->first();
-        $contents = json_decode($record->contents, true);
+        $record = Record::find($id);
 
         $data = $request->input();
-//        dd($data);
-        if($request->input( 'title' ) == '')
-        {
-            \Log::debug('EMPTY');
-        } else {
-            \Log::debug('NOT EMPTY');
-            $record->title = $request->input( 'title' );
-        }
 
-        foreach($contents as $key => $value)
-        {
-            if($data[$key] == '')
-            {
-                \Log::debug('EMPTY');
-            } else {
-                \Log::debug('NOT EMPTY');
-                $contents[$key] = $data[$key];
-            }
-        }
-
+        $record->title = $request->input( 'title' );
+        $contents = array_slice($data, 3);
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
-        redirect()->back()->with('success', 'Record updated!');
+        return redirect('/records')->with('success', 'Record updated!');
 
     }
 }
