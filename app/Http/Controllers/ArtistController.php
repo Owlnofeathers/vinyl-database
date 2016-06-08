@@ -27,7 +27,7 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        //
+        return view( 'artists.create' );
     }
 
     /**
@@ -38,7 +38,12 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $artist = new Artist();
+        $artist->name = $request->input('name');
+        $artist->description = $request->input('description');
+        $artist->save();
+
+        return redirect()->back()->with('success', 'Artist added!');
     }
 
     /**
