@@ -18,6 +18,7 @@ Route::get('/', function () {
 /*
  *  Records
  */
+
 Route::get( 'records', 'VinylController@index' );
 
 Route::get( 'record/{id}', 'VinylController@show' );
@@ -34,13 +35,5 @@ Route::put( 'record/{id}/edit', 'VinylController@edit' );
 /*
  *  Artists
  */
-Route::get( 'artist/{id}', 'ArtistController@show' );
+Route::resource( 'artist', 'ArtistController' );
 
-/*
- *  Edit artists
- */
-Route::get( 'artist/{id}/edit', [
-    'as' => 'artist.edit',
-    'uses' => 'ArtistController@showEdit']);
-
-Route::put( 'artist/{id}/edit', 'ArtistController@edit' );
