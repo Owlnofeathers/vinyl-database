@@ -18,19 +18,7 @@ Route::get('/', function () {
 /*
  *  Records
  */
-
-Route::get( 'records', 'VinylController@index' );
-
-Route::get( 'record/{id}', 'VinylController@show' );
-
-/*
- *  Edit records
- */
-Route::get( 'record/{id}/edit', [
-    'as' => 'record.edit',
-    'uses' => 'VinylController@showEdit']);
-
-Route::put( 'record/{id}/edit', 'VinylController@edit' );
+Route::resource( 'record', 'RecordController' );
 
 /*
  *  Artists

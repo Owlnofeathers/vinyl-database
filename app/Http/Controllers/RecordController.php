@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
 use App\Record;
+
 use Faker;
 
-class VinylController extends Controller
+class RecordController extends Controller
 {
-    /*
-     * Returns vinyl to the index view
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -33,13 +37,37 @@ class VinylController extends Controller
         return view( 'records.index', compact('records', $records) );
     }
 
-    /*
-     * Returns the data of a selected record to the show view
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $faker = Faker\Factory::create();
-        
+
         $record = Record::find($id);
         $contents = json_decode($record->contents, true);
 
@@ -50,9 +78,15 @@ class VinylController extends Controller
         ]);
     }
 
-    public function showEdit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
-        $record = Record::where('id', $id)->first();
+        $record = Record::find($id);
         $contents = $record->contents;
 
         return view('records.edit',
@@ -62,12 +96,14 @@ class VinylController extends Controller
             ]);
     }
 
-    /*
-     * Edits the changed values for keys in the JSON contents
-     * and the title
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-
-    public function edit($id, Request $request)
+    public function update(Request $request, $id)
     {
         $record = Record::find($id);
 
@@ -78,7 +114,17 @@ class VinylController extends Controller
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
-        return redirect('/records')->with('success', 'Record updated!');
+        return redirect('/record')->with('success', 'Record updated!');
+    }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
