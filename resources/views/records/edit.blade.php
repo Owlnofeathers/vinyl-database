@@ -4,7 +4,7 @@
     <div class ="container">
         <h1>Edit Record Contents</h1>
         <h2 class="page-header">{{ $record->artist->name }} - {{ $record->title }}</h2>
-        <form action="/record/{{ $record->id }}/edit" method="POST">
+        <form action="/record/{{ $record->id }}" method="POST">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">

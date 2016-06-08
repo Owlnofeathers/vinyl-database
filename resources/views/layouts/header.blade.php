@@ -34,7 +34,7 @@
                     </li>
                 @else
                     <li>
-                        <a class="page-scroll" href="/records">Records</a>
+                        <a class="page-scroll" href="/record">Records</a>
                     </li>
                 @endif
             </ul>
