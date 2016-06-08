@@ -9,14 +9,14 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="">Title</label>
-                <input type="text" name ="title" class="form-control" placeholder="{{ $record->title }}">
+                <input type="text" name ="title" class="form-control" value="{{ $record->title }}">
             </div>
 
             @foreach($contents as $key => $value)
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">{{ $key }}</label>
-                        <input type="text" name="{{ $key }}" class="form-control" placeholder="{{$value}}">
+                        <input type="text" name="{{ $key }}" class="form-control" value="{{$value}}">
                     </div>
                 </div>
             @endforeach
