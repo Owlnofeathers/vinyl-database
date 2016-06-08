@@ -4,12 +4,12 @@
     <div class ="container">
         <h1>Edit Artist</h1>
         <h2 class="page-header">{{ $artist->name }}</h2>
-        <form action="/artist/{{ $artist->id }}/edit" method="POST">
+        <form action="/artist/{{ $artist->id }}" method="POST">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="">Name</label>
-                <input type="text" name ="name" class="form-control" placeholder="{{ $artist->name }}">
+                <input type="text" name ="name" class="form-control" value="{{ $artist->name }}">
             </div>
 
             <div class="form-group">
