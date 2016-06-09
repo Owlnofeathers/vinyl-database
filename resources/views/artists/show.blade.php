@@ -23,7 +23,7 @@
                 @endforeach
             </div>
         </div>
-        <a href="/records" class="btn btn-primary btn-lg" role="button">Back to all records</a>
+        <a href="/artist" class="btn btn-primary btn-lg" role="button">Back to all artists</a>
 
     </div>
 @endsection
