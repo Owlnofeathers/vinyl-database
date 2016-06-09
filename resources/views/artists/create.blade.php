@@ -3,8 +3,7 @@
 @section('content')
     <div class ="container">
         <h1 class="page-header">Add Artist</h1>
-        <form action="/artist/create" method="POST">
-            <input type="hidden" name="_method" value="PUT">
+        <form action="/artist" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="">Artist or Band Name</label>

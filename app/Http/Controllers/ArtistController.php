@@ -43,7 +43,7 @@ class ArtistController extends Controller
         $artist->description = $request->input('description');
         $artist->save();
 
-        return redirect()->back()->with('success', 'Artist added!');
+        return redirect('/records')>with('success', 'New artist added!');
     }
 
     /**
