@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Artist;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -44,7 +45,14 @@ class RecordController extends Controller
      */
     public function create()
     {
-        //
+        $artists = Artist::all();
+        $sizes = ['7', '10', '12'];
+        $conditions = ['1', '2', '3', '4', '5'];
+
+        return view('records.create', compact('artists', $artists,
+            'sizes', $sizes,
+            'conditions', $conditions
+        ));
     }
 
     /**
@@ -55,7 +63,16 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $record = new Record();
+
+        $data = $request->input();
+        $record->artist_id = $request->input('artist-id');
+        $record->title = $request->input('title');
+        $contents = array_slice($data, 3);
+        $record->contents = json_encode($contents);
+        $record->save();
+
+        return redirect('/record')->with('success', 'Record added!');
     }
 
     /**
@@ -125,6 +142,9 @@ class RecordController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $record = Record::find($id);
+        $record->delete();
+
+        return redirect('/record')->with('success', 'Record deleted!');
     }
 }

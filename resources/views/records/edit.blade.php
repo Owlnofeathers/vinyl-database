@@ -25,8 +25,11 @@
 
         <div class="row">
             <p>
-                <button type="submit" class="btn btn-default btn-lg">Submit</button>
-                <a href="/record/{{ $record->id }}" class="btn btn-danger btn-lg" role="button">Cancel</a>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                {{ Form::open(array('route' => array('record.destroy', $record->id), 'method' => 'delete')) }}
+                    <button class="btn btn-danger btn-lg" type="submit" >Delete</button>
+                {{ Form::close() }}
+                <a href="/record/{{ $record->id }}" class="btn btn-default btn-lg" role="button">Cancel</a>
             </p>
         </div>
 

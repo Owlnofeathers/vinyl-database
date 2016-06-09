@@ -9,11 +9,16 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="">Artist or Band Name</label>
-                    <select class="form-control" name="artist-name">
+                    <select class="form-control" name="artist-id">
                         @foreach($artists as $artist)
-                            <option value="">{{ $artist->name }}</option>
+                            <option value="{{ $artist->id }}">{{ $artist->name }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Album Title</label>
+                    <input type="text" name ="title" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -28,7 +33,7 @@
 
                 <div class="form-group">
                     <label for="">Pressing Information</label>
-                    <input type="text" name ="pressing-info" class="form-control">
+                    <textarea name="pressing-info" class="form-control" rows="10"></textarea>
                 </div>
 
                 <div class="form-group">

@@ -34,7 +34,7 @@
                     @endif
 
                     <div class="img-responsive text-center">
-                        <img src="{{ $faker->imageUrl(300, 300, 'cats') }}">
+                        <img class="img-circle" src="{{ $faker->imageUrl(300, 300, 'cats') }}">
                     </div>
                 </div>
             </div>
