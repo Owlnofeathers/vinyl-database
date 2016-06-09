@@ -7,12 +7,12 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="">Artist or Band Name</label>
-                <input type="text" name ="name" class="form-control" placeholder="Enter artist's name">
+                <input type="text" name="name" class="form-control" placeholder="Enter artist's name">
             </div>
 
             <div class="form-group">
                 <label for="">Description</label>
-                <textarea name ="description" class="form-control" rows="4" cols=""></textarea>
+                <textarea name="description" class="form-control" rows="4"></textarea>
             </div>
 
             <button type="submit" class="btn btn-default btn-lg">Submit</button>
