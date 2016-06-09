@@ -5,6 +5,8 @@
     <div class="container">
         <h1 class="page-header">Artists</h1>
 
+        @include('partials.search',['url'=>'artist'])
+
         @foreach($artists as $artist)
             <p class="lead">
                 <a href="/artist/{{ $artist->id }}" title="View {{ $artist->name }}">{{ $artist->name }}</a>

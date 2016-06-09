@@ -12,7 +12,7 @@
     <div class="container">
         <h1 class="page-header">Adam's Vinyl</h1>
 
-        @include('partials.search',['url'=>'records'])
+        @include('partials.search',['url'=>'record'])
 
             @foreach( $records as $record )
                     <p class="lead">

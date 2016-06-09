@@ -17,7 +17,20 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        $artists = Artist::all();
+        $search = \Request::get('search');
+
+        if(isset($search))
+        {
+            $artists = Artist::where('name','like','%'.$search.'%')
+                ->orderBy('name')->get();
+
+            if(count($artists) < 1)
+            {
+                redirect()->back()->with('danger', 'No records matched your search.');
+            }
+        } else {
+            $artists = Artist::all();
+        }
 
         return view('artists.index', compact('artists', $artists));
     }
