@@ -21,7 +21,6 @@
                 @foreach($artist->records as $record)
                     <p><a href="/record/{{ $record->id }}" title="View {{ $record->title }}">{{ $record->title }}</a></p>
                 @endforeach
-
             </div>
         </div>
         <a href="/records" class="btn btn-primary btn-lg" role="button">Back to all records</a>

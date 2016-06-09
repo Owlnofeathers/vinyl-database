@@ -15,8 +15,8 @@
                 <textarea name ="description" class="form-control" rows="4" cols=""></textarea>
             </div>
 
-            <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
-            <a href="/record" class="btn btn-primary btn-lg btn-block" role="button">Cancel</a>
+            <button type="submit" class="btn btn-default btn-lg">Submit</button>
+            <a href="/record" class="btn btn-danger btn-lg" role="button">Cancel</a>
         </form>
     </div>
 @endsection

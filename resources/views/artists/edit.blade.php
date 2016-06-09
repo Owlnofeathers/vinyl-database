@@ -18,9 +18,11 @@
                     {{ $artist->description }}
                 </textarea>
             </div>
+            <p>
+                <button type="submit" class="btn btn-default btn-lg">Submit</button>
+                <a href="/artist/{{ $artist->id }}" class="btn btn-danger btn-lg" role="button">Cancel</a>
+            </p>
 
-            <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
-            <a href="/artist/{{ $artist->id }}" class="btn btn-primary btn-lg btn-block" role="button">Cancel</a>
         </form>
     </div>
 @endsection
