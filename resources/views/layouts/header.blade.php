@@ -27,14 +27,17 @@
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Records</a>
+                        <a class="page-scroll" href="#records">Records</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#artists">Artists</a>
                     </li>
                 @else
                     <li>
                         <a class="page-scroll" href="/record">Records</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/artist">Artists</a>
                     </li>
                 @endif
             </ul>
