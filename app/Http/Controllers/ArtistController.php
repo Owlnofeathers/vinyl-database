@@ -54,11 +54,11 @@ class ArtistController extends Controller
     public function store(Request $request)
     {
         $artist = new Artist();
-        $artist->name = $request->input('name');
-        $artist->description = $request->input('description');
+        $artist->name = $request->name;
+        $artist->description = $request->description;
         $artist->save();
 
-        return redirect('/artist')>with('success', 'New artist added!');
+        return redirect('/artist')->with('success', 'New artist added!');
     }
 
     /**
