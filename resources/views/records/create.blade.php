@@ -15,6 +15,9 @@
                         @endforeach
                     </select>
                 </div>
+                <p>
+                    <a href="/artist/create" class="btn btn-primary" role="button">Add New Artist</a>
+                </p>
 
                 <div class="form-group">
                     <label for="">Album Title</label>
