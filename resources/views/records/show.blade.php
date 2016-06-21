@@ -38,6 +38,9 @@
                     </div>
                 </div>
             </div>
+            @if( ! is_null($record->updated_at))
+                <p>Last edited on {{ $record->updated_at }}</p>
+            @endif
 
             <a href="/record" class="btn btn-primary btn-lg" role="button">Back to all records</a>
         </div>
