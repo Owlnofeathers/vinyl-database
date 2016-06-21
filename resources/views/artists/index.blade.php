@@ -1,17 +1,11 @@
 @extends('layouts.main')
 
-{{--@section('scripts')
-    <script>
-        $('div.alert').not('.alert-important').delay(3000).slideUp(300);
-    </script>
-@endsection--}}
-
 @section('content')
 
     <div class="container">
         <h1 class="page-header">Artists</h1>
         <p>
-            <a href="/artist/create" class="btn btn-default btn-lg" role="button">Add New Artist</a>
+            <a href="/artist/create" class="btn btn-primary btn-lg" role="button">Add New Artist</a>
         </p>
 
         @include('partials.search',['url'=>'artist'])
