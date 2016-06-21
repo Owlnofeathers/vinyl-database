@@ -8,6 +8,7 @@
 
     <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ elixir("css/all.css") }}">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

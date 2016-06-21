@@ -1,5 +1,11 @@
 body {
     padding-top:7em;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #eeeeee;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Oswald', sans-serif;
 }
 
 p, li {
@@ -10,5 +16,8 @@ footer {
     padding:3em;
     padding-top:7em;
     margin-top:3em;
-    border-top:solid 2px #adadad;
+    border-top:solid 1px #adadad;
+    background-color: #ffffff;
 }
+
+
