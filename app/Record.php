@@ -19,11 +19,11 @@ class Record extends Model
 
     public function getCreatedAtAttribute($date)
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m-d-Y');
     }
 
     public function getUpdatedAtAttribute($date)
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m-d-Y');
     }
 }

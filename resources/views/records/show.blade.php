@@ -36,11 +36,12 @@
                     <div class="img-responsive text-center">
                         <img class="img-circle" src="{{ $faker->imageUrl(300, 300, 'cats') }}">
                     </div>
+
+                    @if( ! is_null($record->updated_at))
+                        <p class="small pull-right">Last edited on {{ $record->updated_at }}</p>
+                    @endif
                 </div>
             </div>
-            @if( ! is_null($record->updated_at))
-                <p>Last edited on {{ $record->updated_at }}</p>
-            @endif
 
             <a href="/record" class="btn btn-primary btn-lg" role="button">Back to all records</a>
         </div>
