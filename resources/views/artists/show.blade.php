@@ -4,9 +4,15 @@
 
     <div class ="container">
         <h1 class=page-header">{{ $artist->name }}
-            <a href="/artist/{{ $artist->id }}/edit" type="button" title="Edit {{ $artist->name }}">
-                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a>
+
+            @if(Auth::check())
+                <small>
+                    <a href="/artist/{{ $artist->id }}/edit" type="button" title="Edit {{ $artist->name }}">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
+                    </a>
+                </small>
+            @endif
+
         </h1>
 
         <div class="well">

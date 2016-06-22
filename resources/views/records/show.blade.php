@@ -4,9 +4,15 @@
     <div class ="container">
         <h1><a href ="/artist/{{ $record->artist->id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a></h1>
         <h2 class=page-header">{{ $record->title }}
-            <a href="/record/{{ $record->id }}/edit" type="button" title="Edit {{ $record->title }}">
-                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a>
+
+            @if(Auth::check())
+                <small>
+                    <a href="/record/{{ $record->id }}/edit" type="button" title="Edit {{ $record->title }}">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
+                    </a>
+                </small>
+            @endif
+
         </h2>
 
         <div class="col-md-8">
