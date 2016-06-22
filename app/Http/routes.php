@@ -25,3 +25,5 @@ Route::resource( 'record', 'RecordController' );
  */
 Route::resource( 'artist', 'ArtistController' );
 
+
+Route::auth();
