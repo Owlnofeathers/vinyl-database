@@ -18,7 +18,8 @@ class CreateRecordsTable extends Migration
             $table->foreign('artist_id')->references('id')->on('artists');
             $table->string('title');
             $table->json('contents');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(Carbon\Carbon::now());
+            $table->timestamp('updated_at')->default(Carbon\Carbon::now());
         });
     }
 
