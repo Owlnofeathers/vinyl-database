@@ -29,7 +29,7 @@ class ArtistController extends Controller
                 redirect()->back()->with('danger', 'No records matched your search.');
             }
         } else {
-            $artists = Artist::all();
+            $artists = Artist::all()->sortBy('name');
         }
 
         return view('artists.index', compact('artists', $artists));
