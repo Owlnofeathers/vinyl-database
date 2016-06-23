@@ -1,23 +1,77 @@
 body {
     padding-top:7em;
     font-family: 'Ubuntu', sans-serif;
-    background-color: #eeeeee;
+    background-color: #272c31;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, .jumbotron h1 {
     font-family: 'Oswald', sans-serif;
+    color:#ccd1d9;
 }
 
-p, li {
+p, li, label {
     font-size: 17px;
+    color:#ffffff;
+}
+
+.navbar {
+    background-color: #265e70;
+}
+
+.navbar-nav a {
+    color:#ffffff !important;
+}
+
+.navbar-default .navbar-header > a {
+    color:#ffffff;
+}
+
+.navbar-default .navbar-header > a:hover, .navbar-default .navbar-header > a:focus,
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #4ebbdd;
+    color: #272c31 !important;
+}
+
+.navbar-default .navbar-nav .dropdown-menu > li > a {
+    color: #272c31 !important;
+}
+
+.dropdown-menu a {
+    color:#272c31;
+}
+
+.jumbotron, .well,  .panel-body{
+    background-color: #434a54;
+}
+
+.intro-section, .records-section, .artists-section  {
+    background-color: #272c31;
 }
 
 footer {
     padding:3em;
     padding-top:7em;
-    margin-top:3em;
+    padding-bottom: 9em;
+    margin-top:15em;
     border-top:solid 1px #adadad;
-    background-color: #ffffff;
+    background-color: #265e70;
+    color:#ccd1d9;
+}
+
+a {
+    color:#ffffff;
+}
+
+a:hover {
+    color: #4ebbdd;
+}
+
+footer a {
+    color:#ccd1d9;
+}
+
+footer a:hover {
+    color: #4ebbdd;
 }
 
 

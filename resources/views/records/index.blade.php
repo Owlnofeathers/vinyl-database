@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container text-center">
         <h1 class="page-header">Adam's Records</h1>
 
         @include('partials.search',['url'=>'record'])
 
         @if(Auth::check())
             <p>
-                <a href="/record/create" class="btn btn-primary" role="button">Add New Record</a>
+                <a href="/record/create" class="btn btn-default" role="button">Add New Record</a>
             </p>
         @endif
 
