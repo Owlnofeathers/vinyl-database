@@ -20,19 +20,19 @@
                             <input type="text" name="{{ $key }}" class="form-control" value="{{$value}}">
                         </div>
                     </div>
-            @endforeach
-        </div>
+                @endforeach
+            </div>
 
-        <div class="row">
-            <p>
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                {{ Form::open(array('route' => array('record.destroy', $record->id), 'method' => 'delete')) }}
-                    <button class="btn btn-danger btn-lg" type="submit" >Delete</button>
-                {{ Form::close() }}
-                <a href="/record/{{ $record->id }}" class="btn btn-default btn-lg" role="button">Cancel</a>
-            </p>
-        </div>
-
+            <div class="row">
+                <p>
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <a href="/record/{{ $record->id }}" class="btn btn-default btn-lg" role="button">Cancel</a>
+                </p>
+            </div>
         </form>
+
+        {{ Form::open(array('route' => array('record.destroy', $record->id), 'method' => 'delete')) }}
+            <button class="btn btn-danger btn-lg" type="submit" >Delete</button>
+        {{ Form::close() }}
     </div>
 @endsection
