@@ -18,7 +18,7 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p>This copy of {{ $record->title }} is a {{ $contents['vinyl-color'] }} {{ $contents['vinyl-size'] }}" {{ $contents['genre'] }} record,
+                    <p>This copy of {{ $record->title }} is a {{ $contents['vinyl-color'] }} {{ $contents['vinyl-size'] }}" {{ $genre->name }} record,
                         @if(!empty($contents['catalog-number']))
                             catalog number {{ $contents['catalog-number'] }}.
                         @endif

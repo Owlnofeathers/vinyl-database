@@ -18,9 +18,8 @@ class RecordsTableSeeder extends Seeder
             'contents' => '{
                 "catalog-number" : "Cruz 006",
                 "vinyl-color" : "Black",
-                "pressing-info" : "N/A",
+                "pressing-info" : "",
                 "vinyl-size" : "12",
-                "genre" : "Punk",
                 "photo-link" : "http://instagr.am/p/PIcRTogeTu/",
                 "condition" : "5"
             }'
@@ -33,9 +32,8 @@ class RecordsTableSeeder extends Seeder
             'contents' => '{
                 "catalog-number" : "Cruz 011",
                 "vinyl-color" : "Green",
-                "pressing-info" : "N/A",
+                "pressing-info" : "",
                 "vinyl-size" : "12",
-                "genre" : "Punk",
                 "photo-link" : "http://instagram.com/p/bkc8A9AeUo/",
                 "condition" : "5"
             }'
@@ -50,7 +48,6 @@ class RecordsTableSeeder extends Seeder
                 "vinyl-color" : "Dookie/Electric Blue",
                 "pressing-info" : "First press, color limited to 2200",
                 "vinyl-size" : "12",
-                "genre" : "Punk",
                 "photo-link" : "http://instagr.am/p/MHrs9CgeTO/",
                 "condition" : "5"
             }'
@@ -65,7 +62,6 @@ class RecordsTableSeeder extends Seeder
                 "vinyl-color" : "Red",
                 "pressing-info" : "First Pressing, Gatefold, Limited to 500",
                 "vinyl-size" : "12",
-                "genre" : "Punk",
                 "photo-link" : "http://instagr.am/p/MQktK5AeY0/",
                 "condition" : "5"
             }'
@@ -80,7 +76,6 @@ class RecordsTableSeeder extends Seeder
                 "vinyl-color" : "Black",
                 "pressing-info" : "Gatefold, Double 180g Vinyl, Limited to 2000",
                 "vinyl-size" : "12",
-                "genre" : "Punk",
                 "photo-link" : "http://instagr.am/p/N7FREWAefQ/",
                 "condition" : "5"
             }'
@@ -93,9 +88,8 @@ class RecordsTableSeeder extends Seeder
             'contents' => '{
                 "catalog-number" : "LK 046",
                 "vinyl-color" : "Black",
-                "pressing-info" : "N/A",
+                "pressing-info" : "",
                 "vinyl-size" : "12",
-                "genre" : "Punk",
                 "photo-link" : "http://instagram.com/p/amN6AKAeeU/",
                 "condition" : "5"
             }'
