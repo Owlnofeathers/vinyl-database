@@ -13,6 +13,7 @@ class RecordsTableSeeder extends Seeder
     {
         DB::table('records')->insert([
             'artist_id' => 1,
+            'genre_id' => 16,
             'title' => 'Allroy’s Revenge',
             'contents' => '{
                 "catalog-number" : "Cruz 006",
@@ -27,6 +28,7 @@ class RecordsTableSeeder extends Seeder
 
         DB::table('records')->insert([
             'artist_id' => 1,
+            'genre_id' => 16,
             'title' => 'Allroy Saves',
             'contents' => '{
                 "catalog-number" : "Cruz 011",
@@ -41,6 +43,7 @@ class RecordsTableSeeder extends Seeder
 
         DB::table('records')->insert([
             'artist_id' => 2,
+            'genre_id' => 16,
             'title' => 'Exister',
             'contents' => '{
                 "catalog-number" : "Rise158-1",
@@ -55,6 +58,7 @@ class RecordsTableSeeder extends Seeder
 
         DB::table('records')->insert([
             'artist_id' => 2,
+            'genre_id' => 16,
             'title' => 'The New What Next',
             'contents' => '{
                 "catalog-number" : "NIR 168",
@@ -69,6 +73,7 @@ class RecordsTableSeeder extends Seeder
 
         DB::table('records')->insert([
             'artist_id' => 3,
+            'genre_id' => 16,
             'title' => 'American Idiot',
             'contents' => '{
                 "catalog-number" : "Reprise 48777-1",
@@ -83,6 +88,7 @@ class RecordsTableSeeder extends Seeder
 
         DB::table('records')->insert([
             'artist_id' => 3,
+            'genre_id' => 16,
             'title' => 'Kerplunk',
             'contents' => '{
                 "catalog-number" : "LK 046",
