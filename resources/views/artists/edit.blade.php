@@ -24,8 +24,17 @@
             </p>
         </form>
 
-        {{ Form::open(array('route' => array('artist.destroy', $artist->id), 'method' => 'delete')) }}
+        {{ Form::open(array('route' => array('artist.destroy', $artist->id), 'method' => 'delete', 'id' => 'delete')) }}
             <button class="btn btn-danger btn-lg" type="submit" >Delete</button>
         {{ Form::close() }}
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $("#delete").click(function(event) {
+            if( !confirm("Are you SURE you want to delete this artist?") )
+                event.preventDefault();
+        });
+    </script>
 @endsection

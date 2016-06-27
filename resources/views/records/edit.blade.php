@@ -25,8 +25,17 @@
                 @foreach($contents as $key => $value)
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">{{ $key }}</label>
-                            <input type="text" name="{{ $key }}" class="form-control" value="{{$value}}">
+                            @if( $key == 'condition')
+                                <label for="">{{ $key }}</label>
+                                <select class="form-control" name="{{ $key }}">
+                                    @foreach($conditions as $condition)
+                                     <option value="{{ $condition }}" {{ $condition == $value ? 'selected' : '' }}>{{ $condition }}</option>
+                                    @endforeach
+                                </select>
+                            @else
+                                <label for="">{{ $key }}</label>
+                                <input type="text" name="{{ $key }}" class="form-control" value="{{ $value }}">
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -40,8 +49,17 @@
             </div>
         </form>
 
-        {{ Form::open(array('route' => array('record.destroy', $record->id), 'method' => 'delete')) }}
+        {{ Form::open(array('route' => array('record.destroy', $record->id), 'method' => 'delete', 'id' => 'delete')) }}
             <button class="btn btn-danger btn-lg" type="submit" >Delete</button>
         {{ Form::close() }}
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $("#delete").click(function(event) {
+            if( !confirm("Are you SURE you want to delete this record?") )
+                event.preventDefault();
+        });
+    </script>
 @endsection

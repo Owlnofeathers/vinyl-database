@@ -120,11 +120,13 @@ class RecordController extends Controller
         $record = Record::find($id);
         $contents = $record->contents;
         $genres = Genre::all();
+        $conditions = ['1', '2', '3', '4', '5'];
 
         return view('records.edit',
             [
                 'contents' => json_decode($contents, true),
                 'genres' => $genres,
+                'conditions' => $conditions,
                 'record' => $record
             ]);
     }
