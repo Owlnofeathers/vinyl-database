@@ -81,7 +81,8 @@ class RecordController extends Controller
         $record->artist_id = $request->input('artist-id');
         $record->title = $request->input('title');
         $record->genre_id = $request->input('genre');
-        $contents = array_slice($data, 4);
+        $record->enabled = true;
+        $contents = array_slice($data, 5);
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
