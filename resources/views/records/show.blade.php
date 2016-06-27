@@ -2,8 +2,8 @@
 
 @section('content')
     <div class ="container">
-        <h1><a href ="/artist/{{ $record->artist->id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a></h1>
-        <h2 class=page-header">{{ $record->title }}
+        <h2><a href ="/artist/{{ $record->artist->id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a></h2>
+        <h1 class=page-header">{{ $record->title }}
 
             @if(Auth::check())
                 <small>
@@ -13,7 +13,7 @@
                 </small>
             @endif
 
-        </h2>
+        </h1>
 
         <div class="col-md-8">
             <div class="panel panel-default">
