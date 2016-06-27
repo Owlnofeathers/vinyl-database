@@ -52,11 +52,14 @@ class RecordController extends Controller
     public function create()
     {
         $artists = Artist::all();
+        $genres = Genre::all();
         $sizes = ['7', '10', '12'];
         $conditions = ['1', '2', '3', '4', '5'];
 
-        return view('records.create', compact('artists', $artists,
+        return view('records.create', compact(
+            'artists', $artists,
             'sizes', $sizes,
+            'genres', $genres,
             'conditions', $conditions
         ));
     }
@@ -74,8 +77,9 @@ class RecordController extends Controller
         $data = $request->input();
         $record->artist_id = $request->input('artist-id');
         $record->title = $request->input('title');
-        $contents = array_slice($data, 3);
-        $record->contents = json_encode($contents);
+        $record->genre_id = $request->input('genre');
+        $contents = array_slice($data, 4);
+        $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
         return redirect('/record')->with('success', 'Record added!');
@@ -135,7 +139,8 @@ class RecordController extends Controller
         $data = $request->input();
 
         $record->title = $request->input( 'title' );
-        $contents = array_slice($data, 3);
+        $record->genre_id = $request->input( 'genre' );
+        $contents = array_slice($data, 4);
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 

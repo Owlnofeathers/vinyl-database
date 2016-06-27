@@ -25,6 +25,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="">Genre</label>
+                    <select class="form-control" name="genre">
+                        @foreach($genres as $genre)
+                            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="">Catalog Number</label>
                     <input type="text" name ="catalog-number" class="form-control">
                 </div>
@@ -46,11 +55,6 @@
                             <option value="{{ $size }}">{{ $size }}</option>
                         @endforeach
                     </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="">Genre</label>
-                    <input type="text" name ="genre" class="form-control">
                 </div>
 
                 <div class="form-group">
