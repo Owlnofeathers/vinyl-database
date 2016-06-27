@@ -9,6 +9,14 @@ h1, h2, h3, h4, .jumbotron h1 {
     color:#ccd1d9;
 }
 
+h1 {
+    font-size: 6em;
+}
+
+h2 {
+    font-size: 4em;
+}
+
 p, li, label {
     font-size: 17px;
     color:#ffffff;

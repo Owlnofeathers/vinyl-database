@@ -20,9 +20,9 @@
             </p>
         @endforeach
 
-
-        {{ $records->links() }}
-
+        @if( ! $records->isEmpty() )
+            {{ $records->links() }}
+        @endif
     </div>
 
 @endsection
