@@ -19,6 +19,7 @@ class CreateRecordsTable extends Migration
             $table->unsignedInteger('genre_id');
             $table->foreign('genre_id')->references('id')->on('genres');
             $table->string('title');
+            $table->unsignedInteger('enabled');
             $table->json('contents');
             $table->timestamp('created_at')->default(Carbon\Carbon::now());
             $table->timestamp('updated_at')->default(Carbon\Carbon::now());

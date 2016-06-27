@@ -31,6 +31,7 @@ class RecordController extends Controller
         if(isset($search))
         {
             $records = Record::where('title','like','%'.$search.'%')
+                ->where('enabled', true)
                 ->orderBy('title')->paginate(30);
 
             if(count($records) < 1)
@@ -38,7 +39,9 @@ class RecordController extends Controller
                 redirect()->back()->with('danger', 'No records matched your search.');
             }
         } else {
-            $records = Record::paginate(30);
+            $records = Record::where('enabled', true)
+                ->orderBy('title')->paginate(30);
+
         }
 
         return view( 'records.index', compact('records', $records) );

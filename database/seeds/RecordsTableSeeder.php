@@ -15,6 +15,7 @@ class RecordsTableSeeder extends Seeder
             'artist_id' => 1,
             'genre_id' => 16,
             'title' => 'Allroy’s Revenge',
+            'enabled' => 1,
             'contents' => '{
                 "catalog-number" : "Cruz 006",
                 "vinyl-color" : "Black",
@@ -29,6 +30,7 @@ class RecordsTableSeeder extends Seeder
             'artist_id' => 1,
             'genre_id' => 16,
             'title' => 'Allroy Saves',
+            'enabled' => 1,
             'contents' => '{
                 "catalog-number" : "Cruz 011",
                 "vinyl-color" : "Green",
@@ -43,6 +45,7 @@ class RecordsTableSeeder extends Seeder
             'artist_id' => 2,
             'genre_id' => 16,
             'title' => 'Exister',
+            'enabled' => 1,
             'contents' => '{
                 "catalog-number" : "Rise158-1",
                 "vinyl-color" : "Dookie/Electric Blue",
@@ -57,6 +60,7 @@ class RecordsTableSeeder extends Seeder
             'artist_id' => 2,
             'genre_id' => 16,
             'title' => 'The New What Next',
+            'enabled' => 1,
             'contents' => '{
                 "catalog-number" : "NIR 168",
                 "vinyl-color" : "Red",
@@ -71,6 +75,7 @@ class RecordsTableSeeder extends Seeder
             'artist_id' => 3,
             'genre_id' => 16,
             'title' => 'American Idiot',
+            'enabled' => 1,
             'contents' => '{
                 "catalog-number" : "Reprise 48777-1",
                 "vinyl-color" : "Black",
@@ -85,6 +90,7 @@ class RecordsTableSeeder extends Seeder
             'artist_id' => 3,
             'genre_id' => 16,
             'title' => 'Kerplunk',
+            'enabled' => 1,
             'contents' => '{
                 "catalog-number" : "LK 046",
                 "vinyl-color" : "Black",
