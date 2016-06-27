@@ -43,7 +43,7 @@
                         <img class="img-circle" src="{{ $faker->imageUrl(300, 300, 'cats') }}">
                     </div>
 
-                    @if( ! is_null($record->updated_at))
+                    @if( ! is_null($record->updated_at) && Auth::check())
                         <p class="small pull-right">Last edited on {{ $record->updated_at }}</p>
                     @endif
                 </div>

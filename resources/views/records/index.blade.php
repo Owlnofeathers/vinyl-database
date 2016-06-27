@@ -20,6 +20,9 @@
             </p>
         @endforeach
 
+
+        {{ $records->links() }}
+
     </div>
 
 @endsection

@@ -37,7 +37,7 @@ class RecordController extends Controller
                 redirect()->back()->with('danger', 'No records matched your search.');
             }
         } else {
-            $records = Record::all()->sortBy('title');
+            $records = Record::paginate(30);
         }
 
         return view( 'records.index', compact('records', $records) );
