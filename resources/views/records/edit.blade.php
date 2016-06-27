@@ -13,6 +13,15 @@
                     <input type="text" name ="title" class="form-control" value="{{ $record->title }}">
                 </div>
 
+                <div class="form-group">
+                    <label for="">Genre</label>
+                    <select class="form-control" name="genre">
+                        @foreach($genres as $genre)
+                            <option value="{{ $genre->id }}" {{ $genre->id == $record->genre->id ? 'selected' : '' }}>{{ $genre->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 @foreach($contents as $key => $value)
                     <div class="col-md-4">
                         <div class="form-group">

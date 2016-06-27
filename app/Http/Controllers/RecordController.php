@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Artist;
+use App\Genre;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -91,12 +92,10 @@ class RecordController extends Controller
         $faker = Faker\Factory::create();
 
         $record = Record::find($id);
-        $genre = $record->genre;
         $contents = json_decode($record->contents, true);
 
         return view( 'records.show', [
             'record' => $record,
-            'genre' => $genre,
             'contents' => $contents,
             'faker' => $faker
         ]);
@@ -112,10 +111,12 @@ class RecordController extends Controller
     {
         $record = Record::find($id);
         $contents = $record->contents;
+        $genres = Genre::all();
 
         return view('records.edit',
             [
                 'contents' => json_decode($contents, true),
+                'genres' => $genres,
                 'record' => $record
             ]);
     }
