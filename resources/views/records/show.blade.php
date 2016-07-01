@@ -19,9 +19,11 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <p>This copy of {{ $record->title }} is a {{ $contents['vinyl-color'] }} {{ $contents['vinyl-size'] }}" {{ $record->genre->name }} record,
+                        pressed by {{ $record->label->name }}
                         @if(!empty($contents['catalog-number']))
-                            catalog number {{ $contents['catalog-number'] }}.
+                            (catalog number {{ $contents['catalog-number'] }})
                         @endif
+                        .
                     </p>
 
                     @if(!empty($contents['pressing-info'] ))
