@@ -22,6 +22,15 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label for="">Label</label>
+                    <select class="form-control" name="label">
+                        @foreach($labels as $label)
+                            <option value="{{ $label->id }}" {{ $label->id == $record->label->id ? 'selected' : '' }}>{{ $label->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 @foreach($contents as $key => $value)
                     <div class="col-md-4">
                         <div class="form-group">

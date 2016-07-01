@@ -22,6 +22,11 @@ class Record extends Model
         return $this->belongsTo('App\Genre');
     }
 
+    public function label()
+    {
+        return $this->belongsTo('App\Label');
+    }
+
     public function getCreatedAtAttribute($date)
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m-d-Y');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Artist;
 use App\Genre;
+use App\Label;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -120,12 +121,14 @@ class RecordController extends Controller
         $record = Record::find($id);
         $contents = $record->contents;
         $genres = Genre::all();
+        $labels = Label::all();
         $conditions = ['1', '2', '3', '4', '5'];
 
         return view('records.edit',
             [
                 'contents' => json_decode($contents, true),
                 'genres' => $genres,
+                'labels' => $labels,
                 'conditions' => $conditions,
                 'record' => $record
             ]);
@@ -146,7 +149,8 @@ class RecordController extends Controller
 
         $record->title = $request->input( 'title' );
         $record->genre_id = $request->input( 'genre' );
-        $contents = array_slice($data, 4);
+        $record->label_id = $request->input( 'label' );
+        $contents = array_slice($data, 5);
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
