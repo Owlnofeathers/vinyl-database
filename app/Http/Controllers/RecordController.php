@@ -55,8 +55,9 @@ class RecordController extends Controller
      */
     public function create()
     {
-        $artists = Artist::all();
-        $genres = Genre::all();
+        $artists = Artist::all()->sortBy('name');
+        $genres = Genre::all()->sortBy('name');
+        $labels = Label::all()->sortBy('name');
         $sizes = ['7', '10', '12'];
         $conditions = ['1', '2', '3', '4', '5'];
 
@@ -64,6 +65,7 @@ class RecordController extends Controller
             'artists', $artists,
             'sizes', $sizes,
             'genres', $genres,
+            'labels', $labels,
             'conditions', $conditions
         ));
     }
@@ -82,8 +84,9 @@ class RecordController extends Controller
         $record->artist_id = $request->input('artist-id');
         $record->title = $request->input('title');
         $record->genre_id = $request->input('genre');
+        $record->label_id = $request->input('label');
         $record->enabled = true;
-        $contents = array_slice($data, 5);
+        $contents = array_slice($data, 6);
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
@@ -120,8 +123,8 @@ class RecordController extends Controller
     {
         $record = Record::find($id);
         $contents = $record->contents;
-        $genres = Genre::all();
-        $labels = Label::all();
+        $genres = Genre::all()->sortBy('name');;
+        $labels = Label::all()->sortBy('name');;
         $conditions = ['1', '2', '3', '4', '5'];
 
         return view('records.edit',

@@ -34,6 +34,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="">Label</label>
+                    <select class="form-control" name="label">
+                        @foreach($labels as $label)
+                            <option value="{{ $label->id }}">{{ $label->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="">Catalog Number</label>
                     <input type="text" name ="catalog-number" class="form-control">
                 </div>
