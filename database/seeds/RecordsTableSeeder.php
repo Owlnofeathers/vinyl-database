@@ -208,7 +208,7 @@ class RecordsTableSeeder extends Seeder
                 }'
             ],
             [
-                'artist_id' => 6,
+                'artist_id' => 7,
                 'genre_id' => 17,
                 'title' => 'Answer That and Stay Fashionable',
                 'enabled' => 1,
