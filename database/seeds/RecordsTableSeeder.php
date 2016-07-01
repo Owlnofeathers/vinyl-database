@@ -15,6 +15,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 1,
                 'genre_id' => 16,
+                'label_id' => 18,
                 'title' => 'Allroy’s Revenge',
                 'enabled' => 1,
                 'contents' => '{
@@ -29,6 +30,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 1,
                 'genre_id' => 16,
+                'label_id' => 18,
                 'title' => 'Allroy Saves',
                 'enabled' => 1,
                 'contents' => '{
@@ -43,6 +45,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 2,
                 'genre_id' => 16,
+                'label_id' => 7,
                 'title' => 'Exister',
                 'enabled' => 1,
                 'contents' => '{
@@ -57,6 +60,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 2,
                 'genre_id' => 16,
+                'label_id' => 8,
                 'title' => 'The New What Next',
                 'enabled' => 1,
                 'contents' => '{
@@ -71,6 +75,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 3,
                 'genre_id' => 16,
+                'label_id' => 9,
                 'title' => 'American Idiot',
                 'enabled' => 1,
                 'contents' => '{
@@ -85,6 +90,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 3,
                 'genre_id' => 16,
+                'label_id' => 10,
                 'title' => 'Kerplunk',
                 'enabled' => 1,
                 'contents' => '{
@@ -99,6 +105,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 9,
                 'genre_id' => 16,
+                'label_id' => 8,
                 'title' => 'Thrash Unreal',
                 'enabled' => 1,
                 'contents' => '{
@@ -112,6 +119,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 9,
                 'genre_id' => 16,
+                'label_id' => 8,
                 'title' => 'Reinventing Axl Rose',
                 'enabled' => 1,
                 'contents' => '{
@@ -126,6 +134,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 9,
                 'genre_id' => 16,
+                'label_id' => 11,
                 'title' => 'New Wave',
                 'enabled' => 1,
                 'contents' => '{
@@ -140,6 +149,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 9,
                 'genre_id' => 16,
+                'label_id' => 17,
                 'title' => 'Transgender Dysphoria Blues',
                 'enabled' => 1,
                 'contents' => '{
@@ -154,6 +164,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 9,
                 'genre_id' => 16,
+                'label_id' => 1,
                 'title' => 'Searching For A Former Clarity',
                 'enabled' => 1,
                 'contents' => '{
@@ -168,6 +179,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 9,
                 'genre_id' => 16,
+                'label_id' => 1,
                 'title' => 'Americans Abroad! Live In London',
                 'enabled' => 1,
                 'contents' => '{
@@ -182,6 +194,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 4,
                 'genre_id' => 13,
+                'label_id' => 16,
                 'title' => 'Gumbo Millennium',
                 'enabled' => 1,
                 'contents' => '{
@@ -196,6 +209,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 5,
                 'genre_id' => 1,
+                'label_id' => 12,
                 'title' => 'Emotive',
                 'enabled' => 1,
                 'contents' => '{
@@ -210,6 +224,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 7,
                 'genre_id' => 17,
+                'label_id' => 13,
                 'title' => 'Answer That and Stay Fashionable',
                 'enabled' => 1,
                 'contents' => '{
@@ -224,6 +239,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 6,
                 'genre_id' => 17,
+                'label_id' => 8,
                 'title' => 'Partycrasher',
                 'enabled' => 1,
                 'contents' => '{
@@ -238,6 +254,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 7,
                 'genre_id' => 17,
+                'label_id' => 14,
                 'title' => 'Sing The Sorrow',
                 'enabled' => 1,
                 'contents' => '{
@@ -252,6 +269,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 8,
                 'genre_id' => 1,
+                'label_id' => 1,
                 'title' => 'Rocks',
                 'enabled' => 1,
                 'contents' => '{
@@ -266,6 +284,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 10,
                 'genre_id' => 11,
+                'label_id' => 15,
                 'title' => 'Honey In The Horn',
                 'enabled' => 1,
                 'contents' => '{
@@ -280,6 +299,7 @@ class RecordsTableSeeder extends Seeder
             [
                 'artist_id' => 10,
                 'genre_id' => 11,
+                'label_id' => 15,
                 'title' => 'Sugar Lips',
                 'enabled' => 1,
                 'contents' => '{

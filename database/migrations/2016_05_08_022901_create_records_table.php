@@ -18,6 +18,8 @@ class CreateRecordsTable extends Migration
             $table->foreign('artist_id')->references('id')->on('artists');
             $table->unsignedInteger('genre_id');
             $table->foreign('genre_id')->references('id')->on('genres');
+            $table->unsignedInteger('label_id');
+            $table->foreign('label_id')->references('id')->on('labels');
             $table->string('title');
             $table->unsignedInteger('enabled');
             $table->json('contents');

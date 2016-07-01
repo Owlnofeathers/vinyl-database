@@ -79,6 +79,10 @@ class LabelsTableSeeder extends Seeder
                 'name' => 'Total Treble',
                 'description' => 'Label started by Against Me!'
             ],
+            [
+                'name' => 'Cruz Records',
+                'description' => 'Record label operated by Greg Ginn from Black Flag. Founded in 1987.'
+            ],
 
         ]);
     }
