@@ -222,7 +222,7 @@ class RecordsTableSeeder extends Seeder
                 }'
             ],
             [
-                'artist_id' => 7,
+                'artist_id' => 6,
                 'genre_id' => 17,
                 'title' => 'Partycrasher',
                 'enabled' => 1,
@@ -236,7 +236,7 @@ class RecordsTableSeeder extends Seeder
                 }'
             ],
             [
-                'artist_id' => 6,
+                'artist_id' => 7,
                 'genre_id' => 17,
                 'title' => 'Sing The Sorrow',
                 'enabled' => 1,

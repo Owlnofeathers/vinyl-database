@@ -32,7 +32,7 @@ class RecordController extends Controller
         {
             $records = Record::where('title','like','%'.$search.'%')
                 ->where('enabled', true)
-                ->orderBy('title')->paginate(30);
+                ->orderBy('title')->paginate(20);
 
             if(count($records) < 1)
             {
@@ -40,7 +40,7 @@ class RecordController extends Controller
             }
         } else {
             $records = Record::where('enabled', true)
-                ->orderBy('title')->paginate(30);
+                ->orderBy('title')->paginate(20);
 
         }
 
