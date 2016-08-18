@@ -31,7 +31,7 @@
                 <h3 class="page-header">Discogs Collection</h3>
                 @foreach( $discogs_releases->releases as $release)
                     <p class="lead">
-                        {{ $release->basic_information->title }}
+                        <a href="/record/{{ $release->id }}">{{ $release->basic_information->title }}</a>
                     </p>
                 @endforeach
             </div>

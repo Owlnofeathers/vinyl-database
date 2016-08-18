@@ -102,13 +102,20 @@ class RecordController extends Controller
      */
     public function show($id)
     {
-        $faker = Faker\Factory::create();
+        $faker = Faker\Factory::create();       
 
-        $record = Record::find($id);
-        $contents = json_decode($record->contents, true);
+        $discogs_record = $this->getDiscogsRelease($id);
+
+        $record = Record::where('title', 'like', $discogs_record->title)->first();
+        if($record){
+          $contents = json_decode($record->contents, true);  
+        } else {
+            $contents = '';
+        }
 
         return view( 'records.show', [
             'record' => $record,
+            'discogs_record' => $discogs_record,
             'contents' => $contents,
             'faker' => $faker
         ]);
@@ -181,10 +188,23 @@ class RecordController extends Controller
         curl_setopt($curl_handle, CURLOPT_URL,'https://api.discogs.com/users/owlsays/collection/folders/0/releases');
         curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'Your application name');
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'vinyl-databse');
         $query = curl_exec($curl_handle);
         curl_close($curl_handle);
 
         return json_decode($query);
+    }
+
+    public function getDiscogsRelease($id)
+    {
+       $curl_handle=curl_init();
+        curl_setopt($curl_handle, CURLOPT_URL,'https://api.discogs.com/releases/' . $id);
+        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'vinyl-database');
+        $query = curl_exec($curl_handle);
+        curl_close($curl_handle);
+
+        return json_decode($query); 
     }
 }
