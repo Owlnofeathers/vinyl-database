@@ -2,11 +2,35 @@
   "private": true,
   "scripts": {
     "prod": "gulp --production",
-    "dev": "gulp watch"
+    "dev": "gulp watch",
+    "gulp": "gulp"
   },
   "devDependencies": {
+    "bootstrap-sass": "^3.0.0",
     "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
-    "bootstrap-sass": "^3.0.0"
-  }
+    "laravel-elixir": "^5.0.0"
+  },
+  "name": "vinyl-database",
+  "description": "",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Owlnofeathers/vinyl-database.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Owlnofeathers/vinyl-database/issues"
+  },
+  "homepage": "https://github.com/Owlnofeathers/vinyl-database"
 }
