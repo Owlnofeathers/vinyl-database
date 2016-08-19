@@ -1,8 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    @if($record)
-        <div class ="container">
+    <div class ="container">
+
+        @if($record)
             <h2><a href ="/artist/{{ $record->artist->id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a></h2>
             <h1 class=page-header">{{ $record->title }}
                 @if(Auth::check())
@@ -15,9 +16,10 @@
 
             </h1>
 
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        <h3 class="page-header">Adam's Database</h3>
                         <p>This copy of {{ $record->title }} is a {{ $contents['vinyl-color'] }} {{ $contents['vinyl-size'] }}" {{ $record->genre->name }} record,
                             pressed by {{ $record->label->name }}
                             @if(!empty($contents['catalog-number']))
@@ -57,38 +59,63 @@
                         @endif
                     </div>
                 </div>
-
-                <a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a>
             </div>
 
-        </div>
-    @else
-        <div class ="container">
-        <h2><a href ="" title="">{{ $discogs_record->artists[0]->name }}</a></h2>
-        <h1 class=page-header">{{ $discogs_record->title }}</h1>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="page-header">Discogs Database</h3>
+                        <p>This copy of {{ $discogs_record->title }} is a {{ $discogs_record->styles[0] }}
+                            {{ $discogs_record->formats[0]->descriptions[0] }} {{ $discogs_record->formats[0]->descriptions[1] }},
+                            pressed by {{ $discogs_record->labels[0]->name }}.
+                        </p>
+                        <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
 
-        <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <p>This copy of {{ $discogs_record->title }} is a {{ $discogs_record->formats[0]->descriptions[0] }}
-                        {{ $discogs_record->formats[0]->descriptions[0] }}" {{ $discogs_record->styles[0] }}
-                        record, pressed by {{ $discogs_record->labels[0]->name }}.
-                    </p>
-                    <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
+                        @if( ! empty($discogs_record->notes) )
+                            <p>Some of the notable features of this record are:</p>
+                            <p>{{ $discogs_record->notes }}</p><br>
+                        @endif
 
-                    <p>Some of the notable features of this record are:</p>
-                    <p>{{ $discogs_record->notes }}</p><br>
-
-                    <div class="img-responsive text-center">
-                        <img class="img-circle" src="{{ $faker->imageUrl(300, 300, 'cats') }}">
+                        <div class="img-responsive text-center">
+                            <img class="img-circle" src="{{ $faker->imageUrl(300, 300, 'cats') }}">
+                        </div>
                     </div>
                 </div>
             </div>
 
+        @else
+            <h2><a href ="" title="">{{ $discogs_record->artists[0]->name }}</a></h2>
+            <h1 class=page-header">{{ $discogs_record->title }}</h1>
+
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>This copy of {{ $discogs_record->title }} is a {{ $discogs_record->styles[0] }}
+                            {{ $discogs_record->formats[0]->descriptions[0] }} {{ $discogs_record->formats[0]->descriptions[1] }},
+                            pressed by {{ $discogs_record->labels[0]->name }}.
+                        </p>
+                        <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
+
+                        @if( ! empty($discogs_record->notes) )
+                            <p>Some of the notable features of this record are:</p>
+                            <p>{{ $discogs_record->notes }}</p><br>
+                        @endif
+
+                        <div class="img-responsive text-center">
+                            <img class="img-circle" src="{{ $faker->imageUrl(300, 300, 'cats') }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    </div>
+
+    <div class="row">
+        <div class ="container">
             <a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a>
         </div>
-    @endif
+    </div>
 
-    </div>   
+    <div class="row">
 @endsection
 
