@@ -95,6 +95,31 @@ class RecordController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeFromDiscogs(Request $request)
+    {
+        $record = new Record();
+        $artist = Artist::firstOrNew(['name' => $request->input('artist-name')]);
+        $label = Label::firstOrNew(['name' => $request->input('label-name')]);
+
+//        $data = $request->input();
+        $record->artist_id = $artist->id;
+        $record->title = $request->input('title');
+        $record->genre_id = $request->input('genre');
+        $record->label_id = $label->id;
+        $record->enabled = true;
+//        $contents = array_slice($data, 6);
+//        $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
+        $record->save();
+
+        return redirect()->back()->with('success', 'Record added!');
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -106,7 +131,7 @@ class RecordController extends Controller
 
         $discogs_record = $this->getDiscogsRelease($id);
 
-        $record = Record::where('title', 'like', $discogs_record->title)->first();
+        $record = Record::where('title', 'like', '%'.$discogs_record->title.'%')->first();
         if($record){
           $contents = json_decode($record->contents, true);  
         } else {

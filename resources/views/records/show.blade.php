@@ -106,6 +106,18 @@
                         </div>
                     </div>
                 </div>
+                @if(Auth::check())
+                    <p>This record is not in your vinyl database. Would you like to add it?</p>
+                    {!! Form::open(['link_to_action' => 'RecordController@storeFromDiscogs', $title = null]) !!}
+                    {{--<form action="{!!link_to_action('RecordController@storeFromDiscogs',  $title = null, $parameters = array(), $attributes = array())!!}">--}}
+                        <input type="hidden" name="artist-name" value="{{ $discogs_record->artists[0]->name }}">
+                        <input type="hidden" name="title" value="{{ $discogs_record->title }}">
+                        <input type="hidden" name="genre" value="{{ $discogs_record->styles[0] }}}">
+                        <input type="hidden" name="label-name" value="{{ $discogs_record->labels[0]->name }}">
+                        <a href="/record" type="submit" class="btn btn-default" role="button">Add Record To Database</a></br></br>
+                    {{--</form>--}}
+                    {!! Form::close() !!}
+                @endif
             </div>
         @endif
     </div>
@@ -116,6 +128,5 @@
         </div>
     </div>
 
-    <div class="row">
 @endsection
 
