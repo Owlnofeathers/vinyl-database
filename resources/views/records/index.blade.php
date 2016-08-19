@@ -15,25 +15,30 @@
 
         <br><br>
         <div class="row">
-            <div class="col-md-6">
-                <h3 class="page-header">Vinyl Database</h3>
-                @foreach( $records as $record )
-                    <p class="lead">
-                        <a href="/record/{{ $record->id }}" title="View {{ $record->title }}">{{ $record->artist->name }} - {{ $record->title }}</a>
-                    </p>
-                @endforeach
+            {{--<div class="col-md-6">--}}
+                {{--<h3 class="page-header">Vinyl Database</h3>--}}
+                {{--@foreach( $records as $record )--}}
+                    {{--<p class="lead">--}}
+                        {{--<a href="/record/{{ $record->id }}" title="View {{ $record->title }}">{{ $record->artist->name }} - {{ $record->title }}</a>--}}
+                    {{--</p>--}}
+                {{--@endforeach--}}
 
-                @if( ! $records->isEmpty() )
-                    {{ $records->links() }}
-                @endif
-            </div>
-            <div class="col-md-6">
+                {{--@if( ! $records->isEmpty() )--}}
+                    {{--{{ $records->links() }}--}}
+                {{--@endif--}}
+            {{--</div>--}}
+            <div class="col-md-12">
                 <h3 class="page-header">Discogs Collection</h3>
-                @foreach( $discogs_releases->releases as $release)
-                    <p class="lead">
-                        <a href="/record/{{ $release->id }}">{{ $release->basic_information->title }}</a>
-                    </p>
-                @endforeach
+                <ul>
+                    @foreach( $discogs_releases->releases as $release)
+                        <li class="lead list-unstyled text-left">
+                            <a href="/record/{{ $release->id }}">
+                                {{ $release->basic_information->artists[0]->name }} - {{ $release->basic_information->title }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+
             </div>
         </div>
     </div>
