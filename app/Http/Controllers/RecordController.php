@@ -102,6 +102,7 @@ class RecordController extends Controller
      */
     public function storeFromDiscogs(Request $request)
     {
+        dd($request);
         $record = new Record();
         $artist = Artist::firstOrNew(['name' => $request->input('artist-name')]);
         $label = Label::firstOrNew(['name' => $request->input('label-name')]);
@@ -210,7 +211,7 @@ class RecordController extends Controller
     public function getDiscogsReleases()
     {
         $curl_handle=curl_init();
-        curl_setopt($curl_handle, CURLOPT_URL,'https://api.discogs.com/users/owlsays/collection/folders/0/releases');
+        curl_setopt($curl_handle, CURLOPT_URL,'https://api.discogs.com/users/owlsays/collection/folders/0/releases?sort=artist');
         curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl_handle, CURLOPT_USERAGENT, 'vinyl-database');
