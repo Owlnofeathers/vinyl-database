@@ -5,7 +5,7 @@
     <div class="container text-center">
         <h1 class="page-header">Adam's Records</h1>
 
-        @include('partials.search',['url'=>'record'])
+        {{--@include('partials.search',['url'=>'record'])--}}
 
         @if(Auth::check())
             <p>

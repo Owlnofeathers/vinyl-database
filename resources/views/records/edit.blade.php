@@ -53,7 +53,7 @@
             <div class="row">
                 <p>
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                    <a href="/record/{{ $record->id }}" class="btn btn-default btn-lg" role="button">Cancel</a>
+                    <a href="/record" class="btn btn-default btn-lg" role="button">Cancel</a>
                 </p>
             </div>
         </form>
