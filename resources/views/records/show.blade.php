@@ -65,8 +65,8 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h3 class="page-header">Discogs Database</h3>
-                        <p>This copy of {{ $discogs_record->title }} is a {{ $discogs_record->styles[0] }}
-                            {{ $discogs_record->formats[0]->descriptions[0] }} {{ $discogs_record->formats[0]->descriptions[1] }},
+                        <p>This copy of {{ $discogs_record->title }} is a {{ !empty($discogs_record->styles[0]) ? $discogs_record->styles[0] : '' }}
+                            {{ $discogs_record->formats[0]->descriptions[0] }} {{ !empty($discogs_record->formats[0]->descriptions[1]) ? $discogs_record->formats[0]->descriptions[1] : '' }},
                             pressed by {{ $discogs_record->labels[0]->name }}.
                         </p>
                         <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
@@ -90,8 +90,8 @@
             <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <p>This copy of {{ $discogs_record->title }} is a {{ $discogs_record->styles[0] }}
-                            {{ $discogs_record->formats[0]->descriptions[0] }} {{ $discogs_record->formats[0]->descriptions[1] }},
+                        <p>This copy of {{ $discogs_record->title }} is a {{ !empty($discogs_record->styles[0]) ? $discogs_record->styles[0] : '' }}
+                            {{ $discogs_record->formats[0]->descriptions[0] }} {{ !empty($discogs_record->formats[0]->descriptions[1]) ? $discogs_record->formats[0]->descriptions[1] : '' }},
                             pressed by {{ $discogs_record->labels[0]->name }}.
                         </p>
                         <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
@@ -108,14 +108,12 @@
                 </div>
                 @if(Auth::check())
                     <p>This record is not in your vinyl database. Would you like to add it?</p>
-                    {!! Form::open(['link_to_action' => 'RecordController@storeFromDiscogs', $title = null]) !!}
-                    {{--<form action="{!!link_to_action('RecordController@storeFromDiscogs',  $title = null, $parameters = array(), $attributes = array())!!}">--}}
+                    {!! Form::open(['url' => '/record/store-from-discogs']) !!}
                         <input type="hidden" name="artist-name" value="{{ $discogs_record->artists[0]->name }}">
                         <input type="hidden" name="title" value="{{ $discogs_record->title }}">
-                        <input type="hidden" name="genre" value="{{ $discogs_record->styles[0] }}}">
+                        <input type="hidden" name="genre-name" value="{{ $discogs_record->styles[0] }}">
                         <input type="hidden" name="label-name" value="{{ $discogs_record->labels[0]->name }}">
-                        <a href="/record" type="submit" class="btn btn-default" role="button">Add Record To Database</a></br></br>
-                    {{--</form>--}}
+                        <input type="submit" class="btn btn-default" role="button" value="Add Record To Database"></br></br>
                     {!! Form::close() !!}
                 @endif
             </div>

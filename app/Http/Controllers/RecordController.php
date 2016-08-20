@@ -102,15 +102,15 @@ class RecordController extends Controller
      */
     public function storeFromDiscogs(Request $request)
     {
-        dd($request);
         $record = new Record();
         $artist = Artist::firstOrNew(['name' => $request->input('artist-name')]);
         $label = Label::firstOrNew(['name' => $request->input('label-name')]);
+        $genre = Genre::firstOrNew(['name' => $request->input('genre-name')]);
 
 //        $data = $request->input();
         $record->artist_id = $artist->id;
         $record->title = $request->input('title');
-        $record->genre_id = $request->input('genre');
+        $record->genre_id = $genre->id;
         $record->label_id = $label->id;
         $record->enabled = true;
 //        $contents = array_slice($data, 6);
@@ -220,6 +220,20 @@ class RecordController extends Controller
 
         return json_decode($query);
     }
+
+    public function getDiscogsPages($uri)
+    {
+        $curl_handle=curl_init();
+        curl_setopt($curl_handle, CURLOPT_URL, $uri);
+        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'vinyl-database');
+        $query = curl_exec($curl_handle);
+        curl_close($curl_handle);
+
+        return json_decode($query);
+    }
+
 
     public function getDiscogsRelease($id)
     {

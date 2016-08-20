@@ -27,3 +27,5 @@ Route::resource( 'artist', 'ArtistController' );
 
 
 Route::auth();
+
+Route::post('record/store-from-discogs', 'RecordController@storeFromDiscogs');
