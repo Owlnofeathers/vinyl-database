@@ -103,18 +103,20 @@ class RecordController extends Controller
     public function storeFromDiscogs(Request $request)
     {
         $record = new Record();
-        $artist = Artist::firstOrNew(['name' => $request->input('artist-name')]);
-        $label = Label::firstOrNew(['name' => $request->input('label-name')]);
-        $genre = Genre::firstOrNew(['name' => $request->input('genre-name')]);
+        $artist = Artist::firstOrCreate(['name' => $request->input('artist-name')]);
+        $label = Label::firstOrCreate(['name' => $request->input('label-name')]);
+        $genre = Genre::firstOrCreate(['name' => $request->input('genre-name')]);
 
-//        $data = $request->input();
         $record->artist_id = $artist->id;
         $record->title = $request->input('title');
         $record->genre_id = $genre->id;
         $record->label_id = $label->id;
         $record->enabled = true;
-//        $contents = array_slice($data, 6);
-//        $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
+
+        $data = $request->input();
+        $contents = array_slice($data, 5);
+        $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
+
         $record->save();
 
         return redirect()->back()->with('success', 'Record added!');

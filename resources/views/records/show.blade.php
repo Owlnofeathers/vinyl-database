@@ -5,21 +5,20 @@
 
         @if($record)
             <h2><a href ="/artist/{{ $record->artist->id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a></h2>
-            <h1 class=page-header">{{ $record->title }}
-                @if(Auth::check())
-                    <small>
-                        <a href="/record/{{ $record->id }}/edit" type="button" title="Edit {{ $record->title }}">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
-                        </a>
-                    </small>
-                @endif
-
-            </h1>
+            <h1 class="page-header">{{ $record->title }}</h1>
 
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h3 class="page-header">Adam's Database</h3>
+                        <h3 class="page-header">Adam's Database
+                            @if(Auth::check())
+                                <small>
+                                    <a href="/record/{{ $record->id }}/edit" type="button" title="Edit {{ $record->title }}">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
+                                    </a>
+                                </small>
+                            @endif
+                        </h3>
                         <p>This copy of {{ $record->title }} is a {{ $contents['vinyl-color'] }} {{ $contents['vinyl-size'] }}" {{ $record->genre->name }} record,
                             pressed by {{ $record->label->name }}
                             @if(!empty($contents['catalog-number']))
@@ -113,6 +112,12 @@
                         <input type="hidden" name="title" value="{{ $discogs_record->title }}">
                         <input type="hidden" name="genre-name" value="{{ $discogs_record->styles[0] }}">
                         <input type="hidden" name="label-name" value="{{ $discogs_record->labels[0]->name }}">
+                        <input type="hidden" name="catalog-number" value="{{ $discogs_record->labels[0]->catno }}">
+                        <input type="hidden" name="vinyl-color" value="">
+                        <input type="hidden" name="pressing-info" value="">
+                        <input type="hidden" name="vinyl-size" value="">
+                        <input type="hidden" name="photo-link" value="">
+                        <input type="hidden" name="condition" value="">
                         <input type="submit" class="btn btn-default" role="button" value="Add Record To Database"></br></br>
                     {!! Form::close() !!}
                 @endif
