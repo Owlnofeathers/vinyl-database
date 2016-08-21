@@ -14,6 +14,7 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('discogs_id')->nullable();
             $table->unsignedInteger('artist_id');
             $table->foreign('artist_id')->references('id')->on('artists');
             $table->unsignedInteger('genre_id');
