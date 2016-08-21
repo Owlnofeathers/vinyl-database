@@ -102,12 +102,14 @@ class RecordController extends Controller
      */
     public function storeFromDiscogs(Request $request)
     {
-        $record = new Record();
+//        dd($request);
         $artist = Artist::firstOrCreate(['name' => $request->input('artist-name')]);
         $label = Label::firstOrCreate(['name' => $request->input('label-name')]);
         $genre = Genre::firstOrCreate(['name' => $request->input('genre-name')]);
 
+        $record = new Record();
         $record->artist_id = $artist->id;
+        $record->discogs_id = $request->input('discogs-id');
         $record->title = $request->input('title');
         $record->genre_id = $genre->id;
         $record->label_id = $label->id;
