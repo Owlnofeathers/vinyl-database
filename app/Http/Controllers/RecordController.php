@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Artist;
+use App\DiscogsApi;
 use App\Genre;
 use App\Label;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class RecordController extends Controller
     public function index()
     {
         $search = \Request::get('search');
-        $discogs_releases = $this->getDiscogsReleases();
+        $discogs_releases = DiscogsApi::getDiscogsReleases();
 
         if(isset($search))
         {
@@ -134,7 +135,7 @@ class RecordController extends Controller
     {
         $faker = Faker\Factory::create();       
 
-        $discogs_record = $this->getDiscogsRelease($id);
+        $discogs_record = DiscogsApi::getDiscogsRelease($id);
 
         $record = Record::where('discogs_id', $discogs_record->id)->first();
         if($record){
@@ -210,45 +211,5 @@ class RecordController extends Controller
         $record->delete();
 
         return redirect('/record')->with('success', 'Record deleted!');
-    }
-
-    public function getDiscogsReleases()
-    {
-        $curl_handle=curl_init();
-        curl_setopt($curl_handle, CURLOPT_URL,'https://api.discogs.com/users/owlsays/collection/folders/0/releases?sort=artist');
-        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'vinyl-database');
-        $query = curl_exec($curl_handle);
-        curl_close($curl_handle);
-
-        return json_decode($query);
-    }
-
-    public function getDiscogsPages($uri)
-    {
-        $curl_handle=curl_init();
-        curl_setopt($curl_handle, CURLOPT_URL, $uri);
-        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'vinyl-database');
-        $query = curl_exec($curl_handle);
-        curl_close($curl_handle);
-
-        return json_decode($query);
-    }
-
-
-    public function getDiscogsRelease($id)
-    {
-       $curl_handle=curl_init();
-        curl_setopt($curl_handle, CURLOPT_URL,'https://api.discogs.com/releases/' . $id);
-        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'vinyl-database');
-        $query = curl_exec($curl_handle);
-        curl_close($curl_handle);
-
-        return json_decode($query); 
     }
 }
