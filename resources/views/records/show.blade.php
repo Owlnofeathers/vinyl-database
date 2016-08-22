@@ -112,8 +112,8 @@
                         <input type="hidden" name="title" value="{{ $discogs_record->title }}">
                         <input type="hidden" name="genre-name" value="{{ $discogs_record->styles[0] }}">
                         <input type="hidden" name="label-name" value="{{ $discogs_record->labels[0]->name }}">
-                        <input type="hidden" name="catalog-number" value="{{ $discogs_record->labels[0]->catno }}">
                         <input type="hidden" name="discogs-id" value="{{ $discogs_record->id }}">
+                        <input type="hidden" name="catalog-number" value="{{ $discogs_record->labels[0]->catno }}">
                         <input type="hidden" name="vinyl-color" value="">
                         <input type="hidden" name="pressing-info" value="">
                         <input type="hidden" name="vinyl-size" value="">

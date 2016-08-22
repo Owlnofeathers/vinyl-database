@@ -116,9 +116,9 @@ class RecordController extends Controller
         $record->enabled = true;
 
         $data = $request->input();
-        $contents = array_slice($data, 5);
+        $contents = array_slice($data, 6);
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
-
+//        dd($contents);
         $record->save();
 
         return redirect()->back()->with('success', 'Record added!');
@@ -136,7 +136,7 @@ class RecordController extends Controller
 
         $discogs_record = $this->getDiscogsRelease($id);
 
-        $record = Record::where('title', 'like', '%'.$discogs_record->title.'%')->first();
+        $record = Record::where('discogs_id', $discogs_record->id)->first();
         if($record){
           $contents = json_decode($record->contents, true);  
         } else {
