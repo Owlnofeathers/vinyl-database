@@ -15,32 +15,75 @@
 
         <br><br>
         <div class="row">
-            {{--<div class="col-md-6">--}}
-                {{--<h3 class="page-header">Vinyl Database</h3>--}}
-                {{--@foreach( $records as $record )--}}
-                    {{--<p class="lead">--}}
-                        {{--<a href="/record/{{ $record->id }}" title="View {{ $record->title }}">{{ $record->artist->name }} - {{ $record->title }}</a>--}}
-                    {{--</p>--}}
-                {{--@endforeach--}}
-
-                {{--@if( ! $records->isEmpty() )--}}
-                    {{--{{ $records->links() }}--}}
-                {{--@endif--}}
-            {{--</div>--}}
-            <div class="col-md-12">
-                <h3 class="page-header">Discogs Collection</h3>
-                <ul>
-                    @foreach( $discogs_releases->releases as $release)
+            <div class="releases col-md-12">
+                <h3 class="page-header">Adam's Collection</h3>
+                {{--<ul>--}}
+                    {{--@foreach( $discogs_releases->releases as $release)--}}
+                        {{--<li class="lead list-unstyled text-left">--}}
+                            {{--<a href="/record/{{ $release->id }}">--}}
+                                {{--{{ $release->basic_information->artists[0]->name }} - {{ $release->basic_information->title }}--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    {{--@endforeach--}}
+                {{--</ul>--}}
+                <template id="template-release">
+                    <ul>
                         <li class="lead list-unstyled text-left">
-                            <a href="/record/{{ $release->id }}">
-                                {{ $release->basic_information->artists[0]->name }} - {{ $release->basic_information->title }}
+                            <a href="/record/@{{ release.id }}">
+                                @{{ release.basic_information.artists[0].name }} - @{{ release.basic_information.title }}
                             </a>
                         </li>
-                    @endforeach
-                </ul>
-
+                    </ul>
+                </template>
             </div>
         </div>
     </div>
 
 @endsection
+
+@section('scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.0/vue-resource.js"></script>
+
+    <script type="text/javascript">
+        Vue.component('release', {
+            template: '#template-release',
+            props: ['release'],
+        })
+        window.onload = function(){
+            new Vue({
+                el: '.releases',
+                data: {
+                    releases: [],
+                    pagination: []
+                },
+                ready: function () {
+                    this.fetchReleases()
+                },
+                methods: {
+                    fetchReleases: function (page_url) {
+                        let vm = this;
+                        page_url = page_url || 'https://api.discogs.com/users/owlsays/collection/folders/0/releases?sort=artist'
+                        this.$http.get(page_url)
+                                .then(function (response) {
+                                    vm.makePagination(response.data)
+                                    vm.$set('releases', response.data)
+                                });
+                        console.log(this.$http.get(page_url))
+                    },
+                    makePagination: function(data){
+                        let pagination = {
+                            current_page: data.page,
+                            last_page: data.pages,
+                            next_page_url: data.urls.next,
+                            prev_page_url: data.urls.last
+                        }
+                        this.$set('pagination', pagination)
+                    }
+                }
+            });
+        }
+
+    </script>
+@endsecton
+
