@@ -24,11 +24,9 @@
                             @if(!empty($contents['catalog-number']))
                                 (catalog number {{ $contents['catalog-number'] }})
                             @endif
-                            .
                         </p>
 
                         @if(!empty($contents['pressing-info'] ))
-                            <p>Some of the notable features of this record are:</p>
                             <ul>
                                 <li>{{ $contents['pressing-info'] }}.</li>
                             </ul><br>
@@ -71,7 +69,6 @@
                         <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
 
                         @if( ! empty($discogs_record->notes) )
-                            <p>Some of the notable features of this record are:</p>
                             <p>{{ $discogs_record->notes }}</p><br>
                         @endif
 
@@ -97,7 +94,7 @@
 
                         @if( ! empty($discogs_record->notes) )
                             <p>Some of the notable features of this record are:</p>
-                            <p>{{ $discogs_record->notes }}</p><br>
+                            <p>{{ $discogs_record->notes }}.</p><br>
                         @endif
 
                         <div class="img-responsive text-center">
@@ -118,7 +115,7 @@
                         <input type="hidden" name="pressing-info" value="">
                         <input type="hidden" name="vinyl-size" value="">
                         <input type="hidden" name="photo-link" value="">
-                        <input type="hidden" name="condition" value="">
+                        <input type="hidden" name="condition" value="5">
                         <input type="submit" class="btn btn-default" role="button" value="Add Record To Database"></br></br>
                     {!! Form::close() !!}
                 @endif

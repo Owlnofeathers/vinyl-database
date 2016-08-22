@@ -17,23 +17,15 @@
         <div class="row">
             <div class="releases col-md-12">
                 <h3 class="page-header">Adam's Collection</h3>
-                    @foreach( $discogs_releases->releases as $release)
+                <template v-for="release in releases">
+                    <ul>
                         <li class="lead list-unstyled text-left">
-                            <a href="/record/{{ $release->id }}">
-                                {{ $release->basic_information->artists[0]->name }} - {{ $release->basic_information->title }}
+                            <a href="/record/@{{ release.id }}">
+                                @{{ release.basic_information.artists[0].name }} - @{{ release.basic_information.title }}
                             </a>
                         </li>
-                    @endforeach
-                </ul>
-                {{--<template id="template-release">--}}
-                    {{--<ul>--}}
-                        {{--<li class="lead list-unstyled text-left">--}}
-                            {{--<a href="/record/@{{ release.id }}">--}}
-                                {{--@{{ release.basic_information.artists[0].name }} - @{{ release.basic_information.title }}--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                {{--</template>--}}
+                    </ul>
+                </template>
             </div>
         </div>
     </div>
@@ -54,7 +46,7 @@
                 el: '.releases',
                 data: {
                     releases: [],
-                    pagination: []
+                    pagination: {}
                 },
                 ready: function () {
                     this.fetchReleases()
@@ -65,19 +57,20 @@
                         page_url = page_url || 'https://api.discogs.com/users/owlsays/collection/folders/0/releases?sort=artist'
                         this.$http.get(page_url)
                                 .then(function (response) {
-//                                    vm.makePagination(response.data)
-                                    vm.$set('releases', response.data)
+                                    vm.makePagination(response.data.pagination)
+                                    vm.$set('releases', response.data.releases)
                                 });
                         console.log(this.$http.get(page_url))
                     },
                     makePagination: function(data){
                         let pagination = {
-//                            current_page: data.page,
-//                            last_page: data.pages,
-                            next_page_url: data.next,
-//                            prev_page_url: data.urls.last
+                            current_page: data.page,
+                            last_page: data.pages,
+                            next_page_url: data.urls.next,
+                            prev_page_url: data.urls.prev
                         }
-                        this.$set('pagination.urls', pagination)
+                        console.log(pagination);
+                        this.$set('pagination', pagination)
                     }
                 }
             });
