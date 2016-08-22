@@ -16,7 +16,6 @@
         <br><br>
         <div class="row">
             <div class="releases col-md-12">
-                <h3 class="page-header">Adam's Collection</h3>
                 <template v-for="release in releases">
                     <ul>
                         <li class="lead list-unstyled text-left">
@@ -60,7 +59,6 @@
                                     vm.makePagination(response.data.pagination)
                                     vm.$set('releases', response.data.releases)
                                 });
-                        console.log(this.$http.get(page_url))
                     },
                     makePagination: function(data){
                         let pagination = {
@@ -69,7 +67,6 @@
                             next_page_url: data.urls.next,
                             prev_page_url: data.urls.prev
                         }
-                        console.log(pagination);
                         this.$set('pagination', pagination)
                     }
                 }
