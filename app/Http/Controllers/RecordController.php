@@ -119,7 +119,6 @@ class RecordController extends Controller
         $data = $request->input();
         $contents = array_slice($data, 6);
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
-//        dd($contents);
         $record->save();
 
         return redirect()->back()->with('success', 'Record added!');
@@ -138,7 +137,7 @@ class RecordController extends Controller
         $discogs_record = DiscogsApi::getDiscogsRelease($id);
 
         $record = Record::where('discogs_id', $discogs_record->id)->first();
-        if($record){
+        if (isset($record)){
           $contents = json_decode($record->contents, true);  
         } else {
             $contents = '';
@@ -196,7 +195,7 @@ class RecordController extends Controller
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
-        return redirect('/record')->with('success', 'Record updated!');
+        return redirect()->back()->with('success', 'Record updated!');
     }
 
     /**
