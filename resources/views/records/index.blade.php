@@ -17,17 +17,7 @@
         <div class="row">
             <div class="releases col-md-12">
 
-                <div class="pagination">
-                    <button class="btn btn-default" @click="fetchReleases(pagination.prev_page_url)"
-                    :disabled="!pagination.prev_page_url">
-                    Previous
-                    </button>
-                    <span class="pagination-text">Page @{{pagination.current_page}} of @{{pagination.last_page}}</span>
-                    <button class="btn btn-default" @click="fetchReleases(pagination.next_page_url)"
-                    :disabled="!pagination.next_page_url">Next
-                    </button>
-                </div>
-
+                @include('partials.vue-pagination')
                 <template v-for="release in releases">
                     <ul>
                         <li class="lead list-unstyled text-left">
@@ -37,17 +27,7 @@
                         </li>
                     </ul>
                 </template>
-
-                <div class="pagination">
-                    <button class="btn btn-default" @click="fetchReleases(pagination.prev_page_url)"
-                    :disabled="!pagination.prev_page_url">
-                    Previous
-                    </button>
-                    <span class="pagination-text">Page @{{pagination.current_page}} of @{{pagination.last_page}}</span>
-                    <button class="btn btn-default" @click="fetchReleases(pagination.next_page_url)"
-                    :disabled="!pagination.next_page_url">Next
-                    </button>
-                </div>
+                @include('partials.vue-pagination')
 
             </div>
         </div>
