@@ -56,6 +56,10 @@ p, li, label {
     background-color: #272c31;
 }
 
+.pagination-text {
+    color:#ffffff;
+}
+
 footer {
     padding:3em;
     padding-top:7em;
