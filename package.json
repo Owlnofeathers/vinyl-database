@@ -3,7 +3,8 @@
   "scripts": {
     "prod": "gulp --production",
     "dev": "gulp watch",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "bower": "bower"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.0.0",
