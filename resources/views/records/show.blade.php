@@ -93,7 +93,6 @@
                         <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
 
                         @if( ! empty($discogs_record->notes) )
-                            <p>Some of the notable features of this record are:</p>
                             <p>{{ $discogs_record->notes }}.</p><br>
                         @endif
 
