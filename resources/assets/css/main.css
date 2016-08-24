@@ -1,5 +1,5 @@
 body {
-    padding-top:7em;
+    padding-top:6em;
     font-family: 'Ubuntu', sans-serif;
     background-color: #272c31;
 }
@@ -15,6 +15,10 @@ h1 {
 
 p, li, label {
     font-size: 17px;
+    color:#ffffff;
+}
+
+.pagination-text {
     color:#ffffff;
 }
 
@@ -48,12 +52,12 @@ p, li, label {
     background-color: #434a54;
 }
 
-.intro-section, .records-section, .artists-section  {
-    background-color: #272c31;
+.jumbotron a:hover {
+    color: #4ebbdd;
 }
 
-.pagination-text {
-    color:#ffffff;
+.intro-section, .records-section, .artists-section  {
+    background-color: #272c31;
 }
 
 footer {
@@ -80,6 +84,12 @@ footer a {
 
 footer a:hover {
     color: #4ebbdd;
+}
+
+@media (max-width: 400px) {
+  body{
+      padding-top:3em;
+  }
 }
 
 

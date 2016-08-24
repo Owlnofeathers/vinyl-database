@@ -3,7 +3,7 @@
 @section('content')
     <div class ="container">
 
-        @if($record)
+        @if(isset($record) && isset($discogs_record))
             <h2><a href ="/artist/{{ $record->artist->id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a></h2>
             <h1 class="page-header">{{ $record->title }}</h1>
 
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-        @else
+        @elseif( isset($discogs_record))
             <h2><a href ="" title="">{{ $discogs_record->artists[0]->name }}</a></h2>
             <h1 class=page-header">{{ $discogs_record->title }}</h1>
 
@@ -131,6 +131,8 @@
                     {!! Form::close() !!}
                 @endif
             </div>
+        @else
+            <p>Sorry, i do not have that record in my collection.</p>
         @endif
         <br><br><p><a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a></p>
     </div>
