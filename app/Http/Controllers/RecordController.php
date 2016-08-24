@@ -138,6 +138,7 @@ class RecordController extends Controller
         $faker = Faker\Factory::create();       
 
         $discogs_record = DiscogsApi::getDiscogsRelease($id);
+        $discogs_record_rating = DiscogsApi::getDiscogsReleaseRating($id);
 
         $record = Record::where('discogs_id', $discogs_record->id)->first();
         if (isset($record)){
@@ -149,6 +150,7 @@ class RecordController extends Controller
         return view( 'records.show', [
             'record' => $record,
             'discogs_record' => $discogs_record,
+            'discogs_record_rating' => $discogs_record_rating,
             'contents' => $contents,
             'faker' => $faker
         ]);

@@ -72,6 +72,8 @@
                             <p>{{ $discogs_record->notes }}</p><br>
                         @endif
 
+                        <p>{{$discogs_record_rating->rating->count}} Discogs users give this record an average rating of {{$discogs_record_rating->rating->average}} of 5</p>
+
                         <div class="img-responsive text-center">
                             <img class="img-circle" src="{{ $faker->imageUrl(300, 300, 'cats') }}">
                         </div>
@@ -95,6 +97,8 @@
                         @if( ! empty($discogs_record->notes) )
                             <p>{{ $discogs_record->notes }}.</p><br>
                         @endif
+
+                        <p>Discogs gives this record a rating of {{$discogs_record_rating}}</p>
 
                         <div class="text-center">
                             <img class="img-circle img-responsive" src="{{ $faker->imageUrl(250, 250, 'cats') }}">
