@@ -14,6 +14,7 @@ class RecordsTableSeeder extends Seeder
         DB::table('records')->insert([
             [
                 'artist_id' => 1,
+                'discogs_id' => 407827,
                 'genre_id' => 16,
                 'label_id' => 18,
                 'title' => 'Allroy’s Revenge',
@@ -29,6 +30,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 1,
+                'discogs_id' => 811583,
                 'genre_id' => 16,
                 'label_id' => 18,
                 'title' => 'Allroy Saves',
@@ -44,6 +46,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 2,
+                'discogs_id' => 3603111,
                 'genre_id' => 16,
                 'label_id' => 7,
                 'title' => 'Exister',
@@ -59,6 +62,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 2,
+                'discogs_id' => 2996296,
                 'genre_id' => 16,
                 'label_id' => 8,
                 'title' => 'The New What Next',
@@ -74,6 +78,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 3,
+                'discogs_id' => 1203470,
                 'genre_id' => 16,
                 'label_id' => 9,
                 'title' => 'American Idiot',
@@ -89,6 +94,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 3,
+                'discogs_id' => 706134,
                 'genre_id' => 16,
                 'label_id' => 10,
                 'title' => 'Kerplunk',
@@ -104,6 +110,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 9,
+                'discogs_id' => 1091508,
                 'genre_id' => 16,
                 'label_id' => 8,
                 'title' => 'Thrash Unreal',
@@ -118,6 +125,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 9,
+                'discogs_id' => 2538180,
                 'genre_id' => 16,
                 'label_id' => 8,
                 'title' => 'Reinventing Axl Rose',
@@ -133,6 +141,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 9,
+                'discogs_id' => 1192308,
                 'genre_id' => 16,
                 'label_id' => 11,
                 'title' => 'New Wave',
@@ -148,6 +157,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 9,
+                'discogs_id' => 6138889,
                 'genre_id' => 16,
                 'label_id' => 17,
                 'title' => 'Transgender Dysphoria Blues',
@@ -163,6 +173,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 9,
+                'discogs_id' => 1077554,
                 'genre_id' => 16,
                 'label_id' => 1,
                 'title' => 'Searching For A Former Clarity',
@@ -177,22 +188,8 @@ class RecordsTableSeeder extends Seeder
                 }'
             ],
             [
-                'artist_id' => 9,
-                'genre_id' => 16,
-                'label_id' => 1,
-                'title' => 'Americans Abroad! Live In London',
-                'enabled' => 1,
-                'contents' => '{
-                    "catalog-number": "FAT 716-1",
-                    "vinyl-color": "Black",
-                    "pressing-info": "Double Vinyl, big poster",
-                    "condition": 5,
-                    "vinyl-size": "12",
-                    "photo-link": "http://instagram.com/p/XgcR5nAeZS/"
-                }'
-            ],
-            [
                 'artist_id' => 4,
+                'discogs_id' => 2330354,
                 'genre_id' => 13,
                 'label_id' => 16,
                 'title' => 'Gumbo Millennium',
@@ -208,6 +205,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 5,
+                'discogs_id' => 3454977,
                 'genre_id' => 1,
                 'label_id' => 12,
                 'title' => 'Emotive',
@@ -223,6 +221,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 7,
+                'discogs_id' => 2058530,
                 'genre_id' => 17,
                 'label_id' => 13,
                 'title' => 'Answer That and Stay Fashionable',
@@ -238,6 +237,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 6,
+                'discogs_id' => 5135062,
                 'genre_id' => 17,
                 'label_id' => 8,
                 'title' => 'Partycrasher',
@@ -253,6 +253,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 7,
+                'discogs_id' => 965631,
                 'genre_id' => 17,
                 'label_id' => 14,
                 'title' => 'Sing The Sorrow',
@@ -268,6 +269,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 8,
+                'discogs_id' => 380484,
                 'genre_id' => 1,
                 'label_id' => 1,
                 'title' => 'Rocks',
@@ -283,6 +285,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 10,
+                'discogs_id' => 1336377,
                 'genre_id' => 11,
                 'label_id' => 15,
                 'title' => 'Honey In The Horn',
@@ -298,6 +301,7 @@ class RecordsTableSeeder extends Seeder
             ],
             [
                 'artist_id' => 10,
+                'discogs_id' => 2041562,
                 'genre_id' => 11,
                 'label_id' => 15,
                 'title' => 'Sugar Lips',

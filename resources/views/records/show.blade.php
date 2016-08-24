@@ -96,8 +96,8 @@
                             <p>{{ $discogs_record->notes }}.</p><br>
                         @endif
 
-                        <div class="img-responsive text-center">
-                            <img class="img-circle" src="{{ $faker->imageUrl(300, 300, 'cats') }}">
+                        <div class="text-center">
+                            <img class="img-circle img-responsive" src="{{ $faker->imageUrl(250, 250, 'cats') }}">
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
 
     <div class="row">
         <div class ="container">
-            <a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a>
+            <br><br><a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a>
         </div>
     </div>
 
