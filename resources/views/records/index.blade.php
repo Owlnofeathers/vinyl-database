@@ -6,8 +6,7 @@
         <h1 class="page-header">Adam's Records</h1>
 
         {{--@include('partials.search',['url'=>'record'])--}}
-
-        <br><br>
+        {{--<br><br>--}}
         <div class="row">
             <div class="releases col-md-12">
 

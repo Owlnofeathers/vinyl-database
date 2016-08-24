@@ -24,13 +24,13 @@
                 </li>
                 @if(\Request::is('/'))
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about"><span class="glyphicon glyphicon-info-sign"></span> About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#records"><span class="glyphicon glyphicon-record"></span> Records</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#artists"<span class="glyphicon glyphicon-user"></span> Artists</a>
+                        <a class="page-scroll" href="#artists"><span class="glyphicon glyphicon-user"></span> Artists</a>
                     </li>
                 @else
                     @if (Auth::guest())

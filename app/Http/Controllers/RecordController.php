@@ -200,7 +200,7 @@ class RecordController extends Controller
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
         $record->save();
 
-        return redirect()->back()->with('success', 'Record updated!');
+        return redirect('/record/'.$record->discogs_id)->with('success', 'Record updated!');
     }
 
     /**
