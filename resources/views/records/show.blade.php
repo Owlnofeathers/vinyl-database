@@ -98,10 +98,10 @@
                             <p>{{ $discogs_record->notes }}.</p><br>
                         @endif
 
-                        <p>Discogs gives this record a rating of {{$discogs_record_rating}}</p>
+                        <p>{{$discogs_record_rating->rating->count}} Discogs users give this record an average rating of {{$discogs_record_rating->rating->average}} of 5</p>
 
-                        <div class="text-center">
-                            <img class="img-circle img-responsive" src="{{ $faker->imageUrl(250, 250, 'cats') }}">
+                        <div class="text-center img-responsive">
+                            <img class="img-circle" src="{{ $faker->imageUrl(250, 250, 'cats') }}">
                         </div>
                     </div>
                 </div>
