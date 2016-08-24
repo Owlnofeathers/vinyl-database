@@ -30,7 +30,7 @@
                         <a class="page-scroll" href="#records"><span class="glyphicon glyphicon-record"></span> Records</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#artists">Artists</a>
+                        <a class="page-scroll" href="#artists"<span class="glyphicon glyphicon-user"></span> Artists</a>
                     </li>
                 @else
                     @if (Auth::guest())
@@ -46,6 +46,15 @@
                                 <li><a href="{{ url('/record/create') }}"><span class="glyphicon glyphicon-pencil"></span> Add New Record</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span> Artists <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/artist') }}"><span class="glyphicon glyphicon-user"></span> Artists</a></li>
+                                <li><a href="{{ url('/artist/create') }}"><span class="glyphicon glyphicon-pencil"></span> Add New Artist</a></li>
+                            </ul>
+                        </li>
                     @endif
 
                 @endif
@@ -54,7 +63,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span></a></li>
                     {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
                 @else
                     <li class="dropdown">
@@ -63,7 +72,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <li><a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                         </ul>
                     </li>
                 @endif

@@ -7,12 +7,6 @@
 
         @include('partials.search',['url'=>'artist'])
 
-        @if(Auth::check())
-            <p>
-                <a href="/artist/create" class="btn btn-default" role="button">Add New Artist</a>
-            </p>
-        @endif
-
         <br><br>
         @foreach($artists as $artist)
             <p class="lead">
