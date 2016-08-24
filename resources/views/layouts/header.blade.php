@@ -27,18 +27,27 @@
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#records">Records</a>
+                        <a class="page-scroll" href="#records"><span class="glyphicon glyphicon-record"></span> Records</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#artists">Artists</a>
                     </li>
                 @else
-                    <li>
-                        <a class="page-scroll" href="/record">Records</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/artist">Artists</a>
-                    </li>
+                    @if (Auth::guest())
+                        <li><a href="/record"><span class="glyphicon glyphicon-record"></span> Records</a></li>
+                        <li><a href="/artist">Artists</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span class="glyphicon glyphicon-record"></span> Records <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/record') }}"><span class="glyphicon glyphicon-record"></span> Records</a></li>
+                                <li><a href="{{ url('/record/create') }}"><span class="glyphicon glyphicon-pencil"></span> Add New Record</a></li>
+                            </ul>
+                        </li>
+                    @endif
+
                 @endif
             </ul>
 

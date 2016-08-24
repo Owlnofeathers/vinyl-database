@@ -7,12 +7,6 @@
 
         {{--@include('partials.search',['url'=>'record'])--}}
 
-        @if(Auth::check())
-            <p>
-                <a href="/record/create" class="btn btn-default" role="button">Add New Record</a>
-            </p>
-        @endif
-
         <br><br>
         <div class="row">
             <div class="releases col-md-12">
