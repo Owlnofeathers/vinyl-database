@@ -117,6 +117,7 @@ class RecordsTableSeeder extends Seeder
                 'enabled' => 1,
                 'contents' => '{
                     "catalog-number": "7-276028",
+                    "vinyl-color": "Black",
                     "pressing-info": "Limited to 6500",
                     "condition": 5,
                     "vinyl-size": "7",
