@@ -35,7 +35,7 @@
                 @else
                     @if (Auth::guest())
                         <li><a href="/record"><span class="glyphicon glyphicon-record"></span> Records</a></li>
-                        <li><a href="/artist">Artists</a></li>
+                        <li><a href="/artist"><span class="glyphicon glyphicon-user"></span> Artists</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
