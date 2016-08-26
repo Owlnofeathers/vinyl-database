@@ -60,6 +60,15 @@ p, li, label {
     background-color: #272c31;
 }
 
+.sidebar {
+    border-left:solid 2px #9d9d9d;
+    height: 100%;
+}
+
+.sidebar li {
+    font-size:1.2em;
+}
+
 footer {
     padding:3em;
     padding-top:7em;

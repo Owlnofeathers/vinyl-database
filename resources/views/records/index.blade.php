@@ -8,21 +8,24 @@
         {{--@include('partials.search',['url'=>'record'])--}}
         {{--<br><br>--}}
         <div class="row">
-            <div class="releases col-md-12">
+            <div class="col-md-8">
 
                 @include('partials.vue-pagination')
-                <template v-for="release in releases">
                     <ul>
-                        <li class="lead list-unstyled text-left">
-                            <a href="/record/@{{ release.id }}">
-                                @{{ release.basic_information.artists[0].name }} - @{{ release.basic_information.title }}
-                            </a>
-                        </li>
+                        <template v-for="release in releases">
+                            <li class="lead list-unstyled text-left">
+                                <a href="/record/@{{ release.id }}">
+                                    @{{ release.basic_information.artists[0].name }} - @{{ release.basic_information.title }}
+                                </a>
+                            </li>
+                        </template>
                     </ul>
-                </template>
                 @include('partials.vue-pagination')
 
             </div>
+
+            @include('partials.sidebar')
+
         </div>
     </div>
 
@@ -39,13 +42,15 @@
         })
         window.onload = function(){
             new Vue({
-                el: '.releases',
+                el: '.row',
                 data: {
                     releases: [],
+                    latestReleases: [],
                     pagination: {}
                 },
                 ready: function () {
                     this.fetchReleases()
+                    this.fetchLatestReleases()
                 },
                 methods: {
                     fetchReleases: function (page_url) {
@@ -55,6 +60,14 @@
                                 .then(function (response) {
                                     vm.makePagination(response.data.pagination)
                                     vm.$set('releases', response.data.releases)
+                                });
+                    },
+                    fetchLatestReleases: function (page_url) {
+                        let vm = this;
+                        page_url = page_url
+                        this.$http.get(page_url || 'https://api.discogs.com/users/owlsays/collection/folders/0/releases?per_page=10&sort=added&sort_order=desc')
+                                .then(function (response) {
+                                    vm.$set('latestReleases', response.data.releases)
                                 });
                     },
                     makePagination: function(data){

@@ -90,7 +90,7 @@
             <h2><a href ="" title="">{{ $discogs_record->artists[0]->name }}</a></h2>
             <h1 class=page-header">{{ $discogs_record->title }}</h1>
 
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p>This copy of {{ $discogs_record->title }} is a {{ isset($discogs_record->styles[0]) ? $discogs_record->styles[0] : '' }}
