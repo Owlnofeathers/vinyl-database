@@ -11,15 +11,19 @@
             <div class="col-md-8">
 
                 @include('partials.vue-pagination')
-                    <ul>
-                        <template v-for="release in releases">
-                            <li class="lead list-unstyled text-left">
-                                <a href="/record/@{{ release.id }}">
-                                    @{{ release.basic_information.artists[0].name }} - @{{ release.basic_information.title }}
-                                </a>
-                            </li>
-                        </template>
-                    </ul>
+                    <table class="table">
+                        <tbody>
+                            <template v-for="release in releases">
+                                <tr class="lead list-unstyled text-left">
+                                    <td>
+                                        <a href="/record/@{{ release.id }}" title="Show @{{ release.basic_information.title }}">
+                                            @{{ release.basic_information.artists[0].name }} - @{{ release.basic_information.title }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
                 @include('partials.vue-pagination')
 
             </div>
