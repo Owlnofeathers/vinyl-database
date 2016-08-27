@@ -103,12 +103,12 @@ class RecordController extends Controller
      */
     public function storeFromDiscogs(Request $request)
     {
-//        dd($request);
-        // Removes parentheses that Discogs adds to some of their artists
+        // Removes parentheses that Discogs adds to some of their artists and labels
         $artist_no_parens = trim(preg_replace('/\s*\([^)]*\)/', '', $request->input('artist-name')));
+        $label_no_parens = trim(preg_replace('/\s*\([^)]*\)/', '', $request->input('label-name')));
 
         $artist = Artist::firstOrCreate(['name' => $artist_no_parens]);
-        $label = Label::firstOrCreate(['name' => $request->input('label-name')]);
+        $label = Label::firstOrCreate(['name' => $label_no_parens]);
         $genre = Genre::firstOrCreate(['name' => $request->input('genre-name')]);
 
         $record = new Record();
