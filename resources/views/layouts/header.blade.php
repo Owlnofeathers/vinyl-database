@@ -63,7 +63,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span></a></li>
+                    <li><a  data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span></a></li>
                     {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
                 @else
                     <li class="dropdown">
