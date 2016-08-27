@@ -19,8 +19,8 @@
                                 </small>
                             @endif
                         </h3>
-                        <p>This copy of {{ $record->title }} is a {{ isset($contents['vinyl-color']) ? $contents['vinyl-color'] : '' }}
-                            {{ isset($contents['vinyl-size']) ? $contents['vinyl-size'].'"' : '' }} {{ $record->genre->name }} record,
+                        <p>This copy of {{ $record->title }} is a {{ !empty($contents['vinyl-color']) ? $contents['vinyl-color'] : '' }}
+                            {{ !empty($contents['vinyl-size']) ? $contents['vinyl-size'].'"' : '' }} {{ $record->genre->name }} record,
                             pressed by {{ $record->label->name }}
                             @if( !empty($contents['catalog-number']))
                                 <p>The catalog number is: {{ $contents['catalog-number'] }}</p>
