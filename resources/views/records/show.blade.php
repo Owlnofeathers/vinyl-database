@@ -8,7 +8,7 @@
             <h1 class="page-header">{{ $record->title }}
                 @if(Auth::check())
                     <small>
-                        <a href="/record/{{ $record->id }}/edit" type="button" title="Edit {{ $record->title }}">
+                        <a data-toggle="modal" data-target="#editRecordModal" type="button" title="Edit {{ $record->title }}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
                         </a>
                     </small>
@@ -27,13 +27,13 @@
                         </p>
 
                         @if( isset($discogs_record->notes) )
-                            <p>Notes about this record from Discogs:</p>
-                            <p class="small">{{ $discogs_record->notes }}</p>
+                            <p><strong>Notes about this record from Discogs:</strong></p>
+                            <p><em>{{ $discogs_record->notes }}</em></p>
                         @endif
 
                         @if( !empty($contents['pressing-info'] ))
-                            <p>Notes about this specific record in Adam's collection:</p>
-                            <p class="small">{{ $contents['pressing-info'] }}</p><br>
+                            <p><strong>Notes about this specific record in Adam's collection:</strong></p>
+                            <p><em>{{ $contents['pressing-info'] }}</em></p><br>
                         @endif
 
                         @if($contents['condition'] <= 3)
@@ -80,7 +80,7 @@
                         <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
 
                         @if( isset($discogs_record->notes) )
-                            <p class="small">{{ $discogs_record->notes }}</p>
+                            <p><em>{{ $discogs_record->notes }}</em></p>
                         @endif
 
                         <p><strong>{{$discogs_record_rating->rating->count}}</strong> Discogs users give this record the average rating
@@ -115,6 +115,93 @@
         @endif
         <br><br><p><a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a></p>
     </div>
+
+    @if(!empty($record))
+        <!-- Edit Record Modal -->
+        <div class="modal fade" id="editRecordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Edit {{ $record->artist->name }} - {{ $record->title }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        {{ Form::open(['data-remote']) }}
+                        {{--<form action="/record/{{ $record->id }}" method="POST">--}}
+                            <input type="hidden" name="_method" value="PUT">
+                            {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+                            <div class="form-group">
+                                <label for="">Title</label>
+                                <input type="text" name ="title" class="form-control" value="{{ $record->title }}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Artist</label>
+                                <select class="form-control" name="artist">
+                                    @foreach($artists as $artist)
+                                        <option value="{{ $artist->id }}" {{ $artist->id == $record->artist->id ? 'selected' : '' }}>{{ $artist->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Genre</label>
+                                <select class="form-control" name="genre">
+                                    @foreach($genres as $genre)
+                                        <option value="{{ $genre->id }}" {{ $genre->id == $record->genre->id ? 'selected' : '' }}>{{ $genre->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Label</label>
+                                <select class="form-control" name="label">
+                                    @foreach($labels as $label)
+                                        <option value="{{ $label->id }}" {{ $label->id == $record->label->id ? 'selected' : '' }}>{{ $label->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            @foreach($contents as $key => $value)
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @if( $key == 'condition' )
+                                            <label for="">{{ $key }}</label>
+                                            <select class="form-control" name="{{ $key }}">
+                                                @foreach($conditions as $condition)
+                                                    <option value="{{ $condition }}" {{ $condition == $value ? 'selected' : '' }}>{{ $condition }}</option>
+                                                @endforeach
+                                            </select>
+                                        @elseif ( $key == 'vinyl-size' )
+                                            <label for="">{{ $key }}</label>
+                                            <select class="form-control" name="{{ $key }}">
+                                                @foreach($sizes as $size)
+                                                    <option value="{{ $size }}" {{ $size == $value ? 'selected' : '' }}>{{ $size }}</option>
+                                                @endforeach
+                                            </select>
+                                        @else
+                                            <label for="">{{ $key }}</label>
+                                            <input type="text" name="{{ $key }}" class="form-control" value="{{ $value }}">
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                {{ Form::submit('Update Record', ['class' => 'btn btn-primary']) }}
+                                {{--<button type="button" class="btn btn-primary">Save changes</button>--}}
+                            </div>
+                        {{--</form>--}}
+                        {{ Form::close() }}
+                        {{ Form::open(array('route' => array('record.destroy', $record->id), 'method' => 'delete', 'id' => 'delete')) }}
+                        <button class="btn btn-danger btn-lg" type="submit" >Delete</button>
+                        {{ Form::close() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 
 @endsection
 

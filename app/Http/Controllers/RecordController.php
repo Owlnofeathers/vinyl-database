@@ -139,6 +139,11 @@ class RecordController extends Controller
 
         $discogs_record = DiscogsApi::getDiscogsRelease($id);
         $discogs_record_rating = DiscogsApi::getDiscogsReleaseRating($id);
+        $artists = Artist::all()->sortBy('name');
+        $genres = Genre::all()->sortBy('name');
+        $labels = Label::all()->sortBy('name');
+        $conditions = ['1', '2', '3', '4', '5'];
+        $sizes = ['7', '10', '12'];
 
         $record = Record::where('discogs_id', $discogs_record->id)->first();
         if (isset($record)){
@@ -152,6 +157,11 @@ class RecordController extends Controller
             'discogs_record' => $discogs_record,
             'discogs_record_rating' => $discogs_record_rating,
             'contents' => $contents,
+            'genres' => $genres,
+            'artists' => $artists,
+            'labels' => $labels,
+            'conditions' => $conditions,
+            'sizes' => $sizes,
             'faker' => $faker
         ]);
     }
@@ -164,22 +174,7 @@ class RecordController extends Controller
      */
     public function edit($id)
     {
-        $record = Record::find($id);
-        $contents = $record->contents;
-        $genres = Genre::all()->sortBy('name');;
-        $labels = Label::all()->sortBy('name');;
-        $conditions = ['1', '2', '3', '4', '5'];
-        $sizes = ['7', '10', '12'];
 
-        return view('records.edit',
-            [
-                'contents' => json_decode($contents, true),
-                'genres' => $genres,
-                'labels' => $labels,
-                'conditions' => $conditions,
-                'sizes' => $sizes,
-                'record' => $record
-            ]);
     }
 
     /**
@@ -191,18 +186,19 @@ class RecordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $record = Record::find($id);
-
-        $data = $request->input();
-
+        $record = Record::where('discogs_id', $id)->first();
         $record->title = $request->input( 'title' );
         $record->genre_id = $request->input( 'genre' );
         $record->label_id = $request->input( 'label' );
-        $contents = array_slice($data, 5);
+        $record->artist_id = $request->input( 'artist' );
+
+        $data = $request->input();
+        $contents = array_slice($data, 6);
         $record->contents = json_encode($contents, JSON_PRETTY_PRINT);
+
         $record->save();
 
-        return redirect('/record/'.$record->discogs_id)->with('success', 'Record updated!');
+        return redirect()->back()->with('success', 'Record updated!');
     }
 
     /**
