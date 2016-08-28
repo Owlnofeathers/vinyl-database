@@ -5,20 +5,19 @@
 
         @if(isset($record) && isset($discogs_record))
             <h2><a href ="/artist/{{ $record->artist->id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a></h2>
-            <h1 class="page-header">{{ $record->title }}</h1>
+            <h1 class="page-header">{{ $record->title }}
+                @if(Auth::check())
+                    <small>
+                        <a href="/record/{{ $record->id }}/edit" type="button" title="Edit {{ $record->title }}">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
+                        </a>
+                    </small>
+                @endif
+            </h1>
 
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h3 class="page-header">Adam's Database
-                            @if(Auth::check())
-                                <small>
-                                    <a href="/record/{{ $record->id }}/edit" type="button" title="Edit {{ $record->title }}">
-                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
-                                    </a>
-                                </small>
-                            @endif
-                        </h3>
                         <p>This copy of {{ $record->title }} is a {{ !empty($contents['vinyl-color']) ? $contents['vinyl-color'] : '' }}
                             {{ !empty($contents['vinyl-size']) ? $contents['vinyl-size'].'"' : '' }} {{ $record->genre->name }} record,
                             pressed by {{ $record->label->name }}
@@ -27,10 +26,14 @@
                             @endif
                         </p>
 
+                        @if( isset($discogs_record->notes) )
+                            <p>Notes about this record from Discogs:</p>
+                            <p class="small">{{ $discogs_record->notes }}</p>
+                        @endif
+
                         @if( !empty($contents['pressing-info'] ))
-                            <ul>
-                                <li class="list-unstyled">{{ $contents['pressing-info'] }}</li>
-                            </ul><br>
+                            <p>Notes about this specific record in Adam's collection:</p>
+                            <p class="small">{{ $contents['pressing-info'] }}</p><br>
                         @endif
 
                         @if($contents['condition'] <= 3)
@@ -40,6 +43,10 @@
                         @else
                             <p>This record is in absolutely amazing condition!</p>
                         @endif
+
+                        <p><strong>{{$discogs_record_rating->rating->count}}</strong> Discogs users give this record the average rating
+                            <strong>{{$discogs_record_rating->rating->average}} out of 5</strong>
+                        </p>
 
                         <div class="img-responsive text-center">
                             <img class="img-circle" src="{{ $faker->imageUrl(250, 250, 'cats') }}">
@@ -59,38 +66,11 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h3 class="page-header">Discogs Database</h3>
-                        <p>This copy of {{ $discogs_record->title }} is a {{ isset($discogs_record->styles[0]) ? $discogs_record->styles[0] : '' }}
-                            {{ $discogs_record->formats[0]->descriptions[0] }} {{ isset($discogs_record->formats[0]->descriptions[1]) ? $discogs_record->formats[0]->descriptions[1] : '' }},
-                            pressed by {{ $discogs_record->labels[0]->name }}.
-                        </p>
-                        <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
-
-                        @if( isset($discogs_record->notes) )
-                            <ul>
-                                <li class="list-unstyled">{{ $discogs_record->notes }}</li>
-                            </ul>
-                        @endif
-
-                        <p><strong>{{$discogs_record_rating->rating->count}}</strong> Discogs users give this record the average rating
-                            <strong>{{$discogs_record_rating->rating->average}} out of 5</strong>
-                        </p>
-
-                        <div class="img-responsive text-center">
-                            <img class="img-circle" src="{{ $faker->imageUrl(250, 250, 'cats') }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         @elseif( isset($discogs_record))
             <h2><a href ="" title="">{{ $discogs_record->artists[0]->name }}</a></h2>
             <h1 class=page-header">{{ $discogs_record->title }}</h1>
 
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p>This copy of {{ $discogs_record->title }} is a {{ isset($discogs_record->styles[0]) ? $discogs_record->styles[0] : '' }}
@@ -100,9 +80,7 @@
                         <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
 
                         @if( isset($discogs_record->notes) )
-                            <ul>
-                                <li class="list-unstyled">{{ $discogs_record->notes }}</li>
-                            </ul>
+                            <p class="small">{{ $discogs_record->notes }}</p>
                         @endif
 
                         <p><strong>{{$discogs_record_rating->rating->count}}</strong> Discogs users give this record the average rating
