@@ -69,10 +69,6 @@ class ArtistsTableSeeder extends Seeder
                 'description' => 'Ancient Warlocks are a band from Seattle, WA, which has been steadily building its sound and fan base since their first live show in November of 2010.'
             ],
             [
-                'name' => 'APMD',
-                'description' => 'Also known as All Pigs Must Die.'
-            ],
-            [
                 'name' => 'As Friends Rust',
                 'description' => 'American punk/hardcore band founded in 1996 in Gainesville, Florida.'
             ],
@@ -81,16 +77,8 @@ class ArtistsTableSeeder extends Seeder
                 'description' => 'Formed in the North Carolina coastline community of Wrightsville Beach in 2001.'
             ],
             [
-                'name' => 'At The Drive In',
-                'description' => 'Combining emotional melodies and an upbeat rhythm moving at an unpredictable rate, At the Drive-In definitely stuck out in their hometown El Paso, TX.'
-            ],
-            [
                 'name' => 'At The Gates',
                 'description' => 'At the Gates was formed in 1990 in Gothenburg, Sweden on the ashes of split-up death/black metal band Grotesque.'
-            ],
-            [
-                'name' => 'Avail',
-                'description' => 'American Punk band from Richmond, Virginia. Formed in 1987, split up in 2008.'
             ],
             [
                 'name' => 'B.W. Stevenson',
