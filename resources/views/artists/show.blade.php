@@ -13,9 +13,12 @@
             @endif
         </h1>
 
-        <div class="well">
-            <p class="lead">{{ $artist->description }}</p>
-        </div>
+        @if( !empty($artist->description))
+            <div class="well">
+                <p class="lead">{{ $artist->description }}</p>
+            </div>
+        @endif
+
         @if(count($artist->records) > 0)
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -29,6 +32,8 @@
             </div>
         @endif
         <a href="/artist" class="btn btn-default btn-lg" role="button">Back to all artists</a>
+        <a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a>
+
 
     </div>
 @endsection
