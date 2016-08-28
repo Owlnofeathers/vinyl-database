@@ -34,14 +34,21 @@
                 @foreach($contents as $key => $value)
                     <div class="col-md-4">
                         <div class="form-group">
-                            @if( $key == 'condition')
+                            @if( $key == 'condition' )
                                 <label for="">{{ $key }}</label>
                                 <select class="form-control" name="{{ $key }}">
                                     @foreach($conditions as $condition)
                                      <option value="{{ $condition }}" {{ $condition == $value ? 'selected' : '' }}>{{ $condition }}</option>
                                     @endforeach
                                 </select>
-                            @else
+                            @elseif ( $key == 'vinyl-size' )
+                                <label for="">{{ $key }}</label>
+                                <select class="form-control" name="{{ $key }}">
+                                    @foreach($sizes as $size)
+                                        <option value="{{ $size }}" {{ $size == $value ? 'selected' : '' }}>{{ $size }}</option>
+                                    @endforeach
+                                </select>
+                             @else
                                 <label for="">{{ $key }}</label>
                                 <input type="text" name="{{ $key }}" class="form-control" value="{{ $value }}">
                             @endif

@@ -169,6 +169,7 @@ class RecordController extends Controller
         $genres = Genre::all()->sortBy('name');;
         $labels = Label::all()->sortBy('name');;
         $conditions = ['1', '2', '3', '4', '5'];
+        $sizes = ['7', '10', '12'];
 
         return view('records.edit',
             [
@@ -176,6 +177,7 @@ class RecordController extends Controller
                 'genres' => $genres,
                 'labels' => $labels,
                 'conditions' => $conditions,
+                'sizes' => $sizes,
                 'record' => $record
             ]);
     }
