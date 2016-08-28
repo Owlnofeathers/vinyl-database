@@ -127,9 +127,7 @@
                     </div>
                     <div class="modal-body">
                         {{ Form::open(['data-remote']) }}
-                        {{--<form action="/record/{{ $record->id }}" method="POST">--}}
                             <input type="hidden" name="_method" value="PUT">
-                            {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
                             <div class="form-group">
                                 <label for="">Title</label>
                                 <input type="text" name ="title" class="form-control" value="{{ $record->title }}">
@@ -190,12 +188,11 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 {{ Form::submit('Update Record', ['class' => 'btn btn-primary']) }}
-                                {{--<button type="button" class="btn btn-primary">Save changes</button>--}}
                             </div>
-                        {{--</form>--}}
                         {{ Form::close() }}
+
                         {{ Form::open(array('route' => array('record.destroy', $record->id), 'method' => 'delete', 'id' => 'delete')) }}
-                        <button class="btn btn-danger btn-lg" type="submit" >Delete</button>
+                        <button class="btn btn-danger" type="submit" >Delete</button>
                         {{ Form::close() }}
                     </div>
                 </div>
@@ -203,5 +200,14 @@
         </div>
     @endif
 
+@endsection
+
+@section('scripts')
+    <script>
+        $("#delete").click(function(event) {
+            if( !confirm("Are you SURE you want to delete this record?") )
+                event.preventDefault();
+        });
+    </script>
 @endsection
 

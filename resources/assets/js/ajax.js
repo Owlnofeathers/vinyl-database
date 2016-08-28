@@ -1,4 +1,5 @@
 (function(){
+    // This takes any form with the data-remote attribute  {{ Form::open(['data-remote']) }} and submits it as an AJAX request
 
     $('form[date-remote]').on('submit', function(e){
         var form = $(this);
@@ -10,16 +11,11 @@
             url: url,
             data: form.serialize(),
             success: function(){
-                alert('record updated');
+
             }
         });
         e.preventDefault();
 
-    });
-
-    $("#delete").click(function(event) {
-        if( !confirm("Are you SURE you want to delete this record?") )
-            event.preventDefault();
     });
 
 })();
