@@ -38,11 +38,11 @@
                         @endif
 
                         @if($contents['condition'] <= 3)
-                            <p>The record is in poor condition.</p>
+                            <p>This record in Adam's collection is in poor condition.</p>
                         @elseif($contents['condition'] == 4)
-                            <p>The record is in great shape.</p>
+                            <p>This record in Adam's collection is in great shape.</p>
                         @else
-                            <p>This record in {{ Auth::check() ? 'in ' . Auth::user()->name . '\'s collection ' : '' }}is in absolutely amazing condition!</p>
+                            <p>This record in Adam's collection is in absolutely amazing condition!</p>
                         @endif
 
                         <p><strong>{{$discogs_record_rating->rating->count}}</strong> Discogs users give this record the average rating
