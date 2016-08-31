@@ -21,7 +21,7 @@
                         <p>This copy of {{ $record->title }} is a {{ !empty($contents['vinyl-color']) ? $contents['vinyl-color'] : '' }}
                             {{ !empty($contents['vinyl-size']) ? $contents['vinyl-size'].'"' : '' }} {{ $record->genre->name }}
                             {{ isset($discogs_record->genres[0]) ? ', ' . $discogs_record->genres[0] : '' }}{{ isset($discogs_record->genres[1]) ? ', and  ' . $discogs_record->genres[1] : '' }}
-                            record, pressed by {{ $record->label->name }} in {{ isset($discogs_record->released) ? $discogs_record->released : '' }}
+                            record, pressed by {{ $record->label->name }} in {{ isset($discogs_record->year) ? $discogs_record->year : '' }}
                             @if( !empty($contents['catalog-number']))
                                 <p>The catalog number is: {{ $contents['catalog-number'] }}</p>
                             @endif
@@ -81,7 +81,7 @@
                         <p>This copy of {{ $discogs_record->title }} is a {{ isset($discogs_record->styles[0]) ? $discogs_record->styles[0] : '' }}
                             {{ isset($discogs_record->genres[0]) ? ', ' . $discogs_record->genres[0] : '' }}{{ isset($discogs_record->genres[1]) ? ', and ' . $discogs_record->genres[1] : '' }}
                             {{ $discogs_record->formats[0]->descriptions[0] }} {{ isset($discogs_record->formats[0]->descriptions[1]) ? $discogs_record->formats[0]->descriptions[1] : '' }},
-                            pressed by {{ $discogs_record->labels[0]->name }} in {{ isset($discogs_record->released) ? $discogs_record->released : '' }}
+                            pressed by {{ $discogs_record->labels[0]->name }} in {{ isset($discogs_record->year) ? $discogs_record->year : '' }}
                         </p>
                         <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
 
