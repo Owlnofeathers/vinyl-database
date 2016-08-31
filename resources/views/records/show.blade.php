@@ -2,7 +2,7 @@
 
 @section('content')
     <div class ="container">
-
+{{--{{dd($discogs_record->community->want)}}--}}
         @if(isset($record) && isset($discogs_record))
             <h2><a href ="/artist/{{ $record->artist->id }}" title="View {{ $record->artist->name }}">{{ $record->artist->name }}</a></h2>
             <h1 class="page-header">{{ $record->title }}
@@ -19,8 +19,9 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p>This copy of {{ $record->title }} is a {{ !empty($contents['vinyl-color']) ? $contents['vinyl-color'] : '' }}
-                            {{ !empty($contents['vinyl-size']) ? $contents['vinyl-size'].'"' : '' }} {{ $record->genre->name }} record,
-                            pressed by {{ $record->label->name }}
+                            {{ !empty($contents['vinyl-size']) ? $contents['vinyl-size'].'"' : '' }} {{ $record->genre->name }}
+                            {{ isset($discogs_record->genres[0]) ? ', ' . $discogs_record->genres[0] : '' }}{{ isset($discogs_record->genres[1]) ? ', and  ' . $discogs_record->genres[1] : '' }}
+                            record, pressed by {{ $record->label->name }} in {{ isset($discogs_record->released) ? $discogs_record->released : '' }}
                             @if( !empty($contents['catalog-number']))
                                 <p>The catalog number is: {{ $contents['catalog-number'] }}</p>
                             @endif
@@ -41,12 +42,15 @@
                         @elseif($contents['condition'] == 4)
                             <p>The record is in great shape.</p>
                         @else
-                            <p>This record is in absolutely amazing condition!</p>
+                            <p>This record in {{ Auth::check() ? 'in ' . Auth::user()->name . '\'s collection ' : '' }}is in absolutely amazing condition!</p>
                         @endif
 
                         <p><strong>{{$discogs_record_rating->rating->count}}</strong> Discogs users give this record the average rating
                             <strong>{{$discogs_record_rating->rating->average}} out of 5</strong>
                         </p>
+                        @if(isset($discogs_record->community->want))
+                            <p><strong>{{ $discogs_record->community->want }}</strong> Discogs users currently want this record</p>
+                        @endif
 
                         <div class="img-responsive text-center">
                             <img class="img-circle" src="{{ $faker->imageUrl(250, 250, 'cats') }}">
@@ -62,6 +66,7 @@
                                 <p class="small pull-right">This record is <strong>NOT</strong> enabled.&nbsp;</p>
                             @endif
                         @endif
+                        <p><a href="{{ $discogs_record->uri }}" title="{{ $discogs_record->uri }}" target="_blank">View this record on Discogs.com</a></p>
                     </div>
                 </div>
             </div>
@@ -74,8 +79,9 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p>This copy of {{ $discogs_record->title }} is a {{ isset($discogs_record->styles[0]) ? $discogs_record->styles[0] : '' }}
+                            {{ isset($discogs_record->genres[0]) ? ', ' . $discogs_record->genres[0] : '' }}{{ isset($discogs_record->genres[1]) ? ', and ' . $discogs_record->genres[1] : '' }}
                             {{ $discogs_record->formats[0]->descriptions[0] }} {{ isset($discogs_record->formats[0]->descriptions[1]) ? $discogs_record->formats[0]->descriptions[1] : '' }},
-                            pressed by {{ $discogs_record->labels[0]->name }}
+                            pressed by {{ $discogs_record->labels[0]->name }} in {{ isset($discogs_record->released) ? $discogs_record->released : '' }}
                         </p>
                         <p>The catalog number is: {{ $discogs_record->labels[0]->catno }}</p>
 
@@ -86,10 +92,14 @@
                         <p><strong>{{$discogs_record_rating->rating->count}}</strong> Discogs users give this record the average rating
                             <strong>{{$discogs_record_rating->rating->average}} out of 5</strong>
                         </p>
+                        @if(isset($discogs_record->community->want))
+                            <p><strong>{{ $discogs_record->community->want }}</strong> Discogs users currently want this record</p>
+                        @endif
 
                         <div class="text-center img-responsive">
                             <img class="img-circle" src="{{ $faker->imageUrl(250, 250, 'cats') }}">
                         </div>
+                        <p><a href="{{ $discogs_record->uri }}" title="{{ $discogs_record->uri }}" target="_blank">View this record on Discogs.com</a></p>
                     </div>
                 </div>
                 @if(Auth::check())
