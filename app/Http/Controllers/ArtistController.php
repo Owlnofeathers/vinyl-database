@@ -107,7 +107,7 @@ class ArtistController extends Controller
         $artist->description = $request->input('description');
         $artist->save();
 
-        return redirect('/artist')->with('success', 'Artist updated!');
+        return redirect()->back()->with('success', 'Artist updated!');
     }
 
     /**
