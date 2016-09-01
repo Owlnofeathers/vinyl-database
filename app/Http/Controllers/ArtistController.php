@@ -27,14 +27,14 @@ class ArtistController extends Controller
         if(isset($search))
         {
             $artists = Artist::where('name','like','%'.$search.'%')
-                ->orderBy('name')->get();
+                ->orderBy('name')->paginate(20);
 
             if(count($artists) < 1)
             {
                 redirect()->back()->with('danger', 'No records matched your search.');
             }
         } else {
-            $artists = Artist::all()->sortBy('name');
+            $artists = Artist::orderBy('name')->paginate(20);
         }
 
         return view('artists.index', compact('artists', $artists));

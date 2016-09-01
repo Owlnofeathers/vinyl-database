@@ -13,6 +13,8 @@
                 <a href="/artist/{{ $artist->id }}" title="View {{ $artist->name }}">{{ $artist->name }}</a>
             </p>
         @endforeach
+
+        {{ $artists->links() }}
     </div>
 
 @endsection
