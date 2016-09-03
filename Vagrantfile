@@ -14,6 +14,12 @@ require File.expand_path(confDir + '/scripts/homestead.rb')
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     if File.exists? aliasesPath then
         config.vm.provision "file", source: aliasesPath, destination: "~/.bash_aliases"
+        # Configure VM Ram usage
+        config.vm.customize [
+                            "modifyvm", :id,
+                            "--name", "vinyl-database",
+                            "--memory", "1024"
+                          ]
     end
 
     if File.exists? homesteadYamlPath then
