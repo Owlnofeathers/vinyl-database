@@ -57,7 +57,7 @@ p, li, label {
 
 .intro-section {
     height: 100%;
-    background: url(/img/Vinyl_groove.jpg) no-repeat center center;
+    background: url(/img/magnify-record-lg.jpg) no-repeat top center;
 }
 
 .intro-section h1 {
@@ -69,7 +69,7 @@ p, li, label {
 .records-section {
     height: 100%;
     padding-bottom: 800px;
-    background: url(/img/vintage-music-record.jpg) no-repeat top center;
+    background: url(/img/white-record-lg.jpg) no-repeat top center;
 }
 
 .records-section h1 {
@@ -83,23 +83,23 @@ p, li, label {
 
 .artists-section  {
     height: 100%;
-    padding-bottom: 800px;
-    background: url(/img/vintage-music-record.jpg) no-repeat center center;
+    padding-bottom:800px;
+    background: url(/img/magnify-record2-lg.jpg) no-repeat center center;
 }
 
 .artists-section h1 {
-    color:#272c31;
+    color:#fff;
     font-size:7em;
 }
 
 .artists-section p {
-    color:#272c31;
+    color:#fff;
 }
 
 .about-section  {
     height: 100%;
-    padding-bottom: 800px;
-    background: url(/img/Vinyl_groove.jpg) no-repeat bottom center;
+    padding-bottom:800px;
+    background-color: #000;
 }
 
 .about-section h1 {
@@ -187,7 +187,20 @@ a:hover {
     }
     .intro-section {
         padding-top: 1em;
+        background: url(/img/magnify-record-sm.jpg) no-repeat center center;
     }
+    .records-section {
+        background: url(/img/white-record-sm.jpg) no-repeat top center;
+        padding:0;
+    }
+    .artists-section {
+        padding:0;
+        background: url(/img/magnify-record2-sm.jpg) no-repeat center center;
+    }
+    .about-section {
+        padding:0;
+    }
+
 
 }
 
