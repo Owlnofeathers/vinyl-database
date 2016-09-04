@@ -31,8 +31,10 @@
                 </div>
             </div>
         @endif
-        <a href="/artist" class="btn btn-default btn-lg" role="button">Back to all artists</a>
-        <a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a>
+        <div class="container">
+            <a href="/artist" class="btn btn-primary btn-lg sharp" role="button">Back to all artists</a>
+            <a href="/record" class="btn btn-primary btn-lg sharp" role="button">Back to all records</a><br>
+        </div><br><br>
     </div>
 
     @if(!empty($artist))
@@ -60,13 +62,13 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            {{ Form::submit('Update Artist', ['class' => 'btn btn-primary']) }}
+                            <button type="button" class="btn btn-primary sharp" data-dismiss="modal">Close</button>
+                            {{ Form::submit('Update Artist', ['class' => 'btn btn-primary sharp']) }}
                         </div>
                         {{ Form::close() }}
 
                         {{ Form::open(array('route' => array('artist.destroy', $record->id), 'method' => 'delete', 'id' => 'delete')) }}
-                        <button class="btn btn-danger" type="submit" >Delete</button>
+                        <button class="btn btn-danger sharp" type="submit" >Delete</button>
                         {{ Form::close() }}
                     </div>
                 </div>
