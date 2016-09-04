@@ -8,7 +8,7 @@ body {
 
 h1, h2, h3, h4 {
     font-family: 'Oswald', sans-serif;
-    color:#ccd1d9;
+    color:#CFB67D;
 }
 
 h1 {
@@ -17,29 +17,30 @@ h1 {
 
 p, li, label {
     font-size: 17px;
-    color:#ffffff;
+    color:#CFB67D;
 }
 
 .pagination-text {
-    color:#ffffff;
+    color:#CFB67D;
 }
 
 .navbar {
-    background-color: #265e70;
+    background-color: #000;
 }
 
 .navbar-nav a {
-    color:#ffffff !important;
+    color:#CFB67D !important;
 }
 
 .navbar-default .navbar-header > a {
-    color:#ffffff;
+    color:#CFB67D;
 }
 
 .navbar-default .navbar-header > a:hover, .navbar-default .navbar-header > a:focus,
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    background-color: #4ebbdd;
+    background-color: #CFB67D;
     color: #272c31 !important;
+    text-shadow: none;
 }
 
 .navbar-default .navbar-nav .dropdown-menu > li > a {
@@ -54,12 +55,60 @@ p, li, label {
     background-color: #434a54;
 }
 
-.into-section {
-    background: url(../img/intro/intro4.jpg) no-repeat center center;
+.intro-section {
+    height: 100%;
+    background: url(/img/Vinyl_groove.jpg) no-repeat center center;
 }
 
-.intro-section, .records-section, .artists-section  {
-    background-color: #272c31;
+.intro-section h1 {
+    color:#ffffff;
+    text-shadow: 2px 2px #000;
+    font-size:6em;
+}
+
+.records-section {
+    height: 100%;
+    padding-bottom: 800px;
+    background: url(/img/vintage-music-record.jpg) no-repeat top center;
+}
+
+.records-section h1 {
+    color:#272c31;
+    font-size:7em;
+}
+
+.records-section p {
+    color:#272c31;
+}
+
+.artists-section  {
+    height: 100%;
+    padding-bottom: 800px;
+    background: url(/img/vintage-music-record.jpg) no-repeat center center;
+}
+
+.artists-section h1 {
+    color:#272c31;
+    font-size:7em;
+}
+
+.artists-section p {
+    color:#272c31;
+}
+
+.about-section  {
+    height: 100%;
+    padding-bottom: 800px;
+    background: url(/img/Vinyl_groove.jpg) no-repeat bottom center;
+}
+
+.about-section h1 {
+    color:#fff;
+    font-size:4em;
+}
+
+.about-section p {
+    color:#CFB67D;
 }
 
 .sidebar {
@@ -79,10 +128,9 @@ footer {
     padding:3em;
     padding-top:7em;
     padding-bottom: 9em;
-    margin-top:15em;
     border-top:solid 1px #adadad;
-    background-color: #265e70;
-    color:#ccd1d9;
+    background-color: #000;
+    color:#CFB67D;
 }
 
 a {
@@ -90,21 +138,53 @@ a {
 }
 
 a:hover {
-    color: #4ebbdd;
+    color:#CFB67D;
+    text-shadow: 1px 1px #000;
+    text-decoration: underline;
 }
 
-footer a {
-    color:#ccd1d9;
+.btn.sharp {
+    border-radius:0;
 }
 
-footer a:hover {
-    color: #4ebbdd;
+.btn {
+    padding: 14px 40px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-@media (max-width: 400px) {
-  body{
-      padding-top:3.5em;
-  }
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+    text-shadow: none;
+}
+
+.btn-primary {
+    background: #CFB67D;
+    color: #000;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #F5E2B6;
+    color: #000;
+    text-shadow: none;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #AD9050;
+    box-shadow: none;
+}
+
+@media (max-width: 765px) {
+
+    body{
+        padding-top:3.5em;
+    }
+    .intro-section {
+        padding-top: 1em;
+    }
+
 }
 
 

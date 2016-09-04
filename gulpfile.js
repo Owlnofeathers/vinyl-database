@@ -1,5 +1,11 @@
-process.env.DISABLE_NOTIFIER = true;
 var elixir = require('laravel-elixir');
+
+/*
+    Copy images
+ */
+elixir(function(mix) {
+    mix.copy('resources/assets/img/', 'public/img/');
+});
 
 /*
     CSS
