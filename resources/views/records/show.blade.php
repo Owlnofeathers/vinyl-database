@@ -116,14 +116,14 @@
                         <input type="hidden" name="vinyl-size" value="">
                         <input type="hidden" name="photo-link" value="">
                         <input type="hidden" name="condition" value="5">
-                        <input type="submit" class="btn btn-default" role="button" value="Add Record To Database"></br></br>
+                        <input type="submit" class="btn btn-primary sharp" role="button" value="Add Record To Database"></br></br>
                     {!! Form::close() !!}
                 @endif
             </div>
         @else
             <p>Sorry, i do not have that record in my collection.</p>
         @endif
-        <br><br><p><a href="/record" class="btn btn-default btn-lg" role="button">Back to all records</a></p>
+        <p><a href="/record" class="btn btn-primary btn-lg sharp" role="button">Back to all records</a></p>
     </div>
 
     @if(!empty($record))
@@ -196,13 +196,13 @@
                             @endforeach
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                {{ Form::submit('Update Record', ['class' => 'btn btn-primary']) }}
+                                <button type="button" class="btn btn-primary sharp" data-dismiss="modal">Close</button>
+                                {{ Form::submit('Update Record', ['class' => 'btn btn-primary sharp']) }}
                             </div>
                         {{ Form::close() }}
 
                         {{ Form::open(array('route' => array('record.destroy', $record->id), 'method' => 'delete', 'id' => 'delete')) }}
-                        <button class="btn btn-danger" type="submit" >Delete</button>
+                        <button class="btn btn-danger sharp" type="submit" >Delete</button>
                         {{ Form::close() }}
                     </div>
                 </div>
