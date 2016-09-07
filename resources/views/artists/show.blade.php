@@ -67,7 +67,7 @@
                         </div>
                         {{ Form::close() }}
 
-                        {{ Form::open(array('route' => array('artist.destroy', $record->id), 'method' => 'delete', 'id' => 'delete')) }}
+                        {{ Form::open(array('route' => array('artist.destroy', $artist->id), 'method' => 'delete', 'id' => 'delete')) }}
                         <button class="btn btn-danger sharp" type="submit" >Delete</button>
                         {{ Form::close() }}
                     </div>
