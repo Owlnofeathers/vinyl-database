@@ -33,6 +33,7 @@
         @endif
         <div class="container">
             <a href="/artist" class="btn btn-primary btn-lg sharp" role="button">Back to all artists</a>
+            <span class="hidden-md hidden-lg"><br><br></span>
             <a href="/record" class="btn btn-primary btn-lg sharp" role="button">Back to all records</a><br>
         </div><br><br>
     </div>
@@ -67,7 +68,7 @@
                         </div>
                         {{ Form::close() }}
 
-                        {{ Form::open(array('route' => array('artist.destroy', $record->id), 'method' => 'delete', 'id' => 'delete')) }}
+                        {{ Form::open(array('route' => array('artist.destroy', $artist->id), 'method' => 'delete', 'id' => 'delete')) }}
                         <button class="btn btn-danger sharp" type="submit" >Delete</button>
                         {{ Form::close() }}
                     </div>
