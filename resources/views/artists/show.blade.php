@@ -33,6 +33,7 @@
         @endif
         <div class="container">
             <a href="/artist" class="btn btn-primary btn-lg sharp" role="button">Back to all artists</a>
+            <span class="hidden-md hidden-lg"><br><br></span>
             <a href="/record" class="btn btn-primary btn-lg sharp" role="button">Back to all records</a><br>
         </div><br><br>
     </div>
